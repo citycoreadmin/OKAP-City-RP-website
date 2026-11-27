@@ -6,6 +6,7 @@ import { createContext, useContext, useEffect, useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import { ArrowDown, ArrowUpRight, Compass, Globe2, Menu, Play, Shield, Sparkles, X } from "lucide-react";
 import { copy, languages, routes, type Language, type PageKey } from "@/lib/content";
+import { FactionScene } from "@/components/faction-scenes";
 
 const LanguageContext = createContext<{ language: Language; setLanguage: (language: Language) => void }>({ language: "en", setLanguage: () => {} });
 function useCopy() { const { language } = useContext(LanguageContext); return copy[language]; }
@@ -96,7 +97,7 @@ function FactionCards({ limit }: { limit?: number }) {
   const t = useCopy();
   return <div className="faction-grid">{t.factions.slice(0, limit).map(([name, description], i) => <Reveal key={name} className="faction-card">
     <div className="faction-card-top"><span>0{i + 1} / OKAP CITY</span><ArrowUpRight size={18}/></div>
-    <div className="faction-symbol" aria-hidden="true">{["✦", "✧", "✚", "✳", "⚖", "◇", "▥", "➜"][i]}</div>
+    <FactionScene index={i}/>
     <div><h3>{name}</h3><p>{description}</p></div>
   </Reveal>)}</div>;
 }
