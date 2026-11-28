@@ -56,7 +56,7 @@ export const copy = {
       ["Transportation Services", "Keep the city moving and connect its people."],
       ["FBI", "Investigate serious crimes and protect the city from the shadows."],
     ],
-    storeLabel: "OFFICIAL STORE", storeCoin: "OKAP Coins", storeSoon: "COMING SOON", storePrice: "Price Coming Soon", storeNotice: "The store is not open yet. Purchases are not available. Packages are shown for preview only.", storePackage: "PACKAGE", storeSep: ",",
+    storeLabel: "OFFICIAL STORE", storeCoin: "OKAP Coins", storeSoon: "COMING SOON", storeNotice: "The store is not open yet. Purchases are not available. Packages are shown for preview only.", storePackage: "PACKAGE", storeSep: ",",
     platform: "PLATFORM", availability: "AVAILABILITY", unavailable: "Not yet available",
   },
   fr: {
@@ -112,7 +112,7 @@ export const copy = {
       ["Services de transport", "Faites bouger la ville et rapprochez ses habitants."],
       ["FBI", "Enquêtez sur les crimes graves et protégez la ville dans l'ombre."],
     ],
-    storeLabel: "BOUTIQUE OFFICIELLE", storeCoin: "OKAP Coins", storeSoon: "BIENTÔT DISPONIBLE", storePrice: "Prix bientôt disponible", storeNotice: "La boutique n'est pas encore ouverte. Aucun achat n'est possible. Les packs sont affichés à titre d'aperçu uniquement.", storePackage: "PACK", storeSep: " ",
+    storeLabel: "BOUTIQUE OFFICIELLE", storeCoin: "OKAP Coins", storeSoon: "BIENTÔT DISPONIBLE", storeNotice: "La boutique n'est pas encore ouverte. Aucun achat n'est possible. Les packs sont affichés à titre d'aperçu uniquement.", storePackage: "PACK", storeSep: " ",
     platform: "PLATEFORME", availability: "DISPONIBILITÉ", unavailable: "Pas encore disponible",
   },
   ht: {
@@ -168,7 +168,7 @@ export const copy = {
       ["Sèvis transpò", "Fè vil la deplase epi konekte moun yo."],
       ["FBI", "Mennen ankèt sou gwo krim epi pwoteje vil la nan lonbraj."],
     ],
-    storeLabel: "BOUTIK OFISYÈL", storeCoin: "OKAP Coins", storeSoon: "AP VINI BYENTÒT", storePrice: "Pri ap vini byentòt", storeNotice: "Boutik la poko louvri. Pa gen acha ki posib. Pake yo parèt kòm apèsi sèlman.", storePackage: "PAKE", storeSep: ",",
+    storeLabel: "BOUTIK OFISYÈL", storeCoin: "OKAP Coins", storeSoon: "AP VINI BYENTÒT", storeNotice: "Boutik la poko louvri. Pa gen acha ki posib. Pake yo parèt kòm apèsi sèlman.", storePackage: "PAKE", storeSep: ",",
     platform: "PLATFÒM", availability: "DISPONIBILITE", unavailable: "Poko disponib",
   },
   ar: {
@@ -224,11 +224,14 @@ export const copy = {
       ["خدمات النقل", "أبقِ المدينة متحركة واربط بين سكانها."],
       ["مكتب التحقيقات الفيدرالي", "حقّق في الجرائم الخطيرة واحمِ المدينة من الظل."],
     ],
-    storeLabel: "المتجر الرسمي", storeCoin: "عملة OKAP", storeSoon: "قريباً", storePrice: "السعر قريباً", storeNotice: "المتجر لم يُفتح بعد. الشراء غير متاح. الباقات معروضة للمعاينة فقط.", storePackage: "باقة", storeSep: ",",
+    storeLabel: "المتجر الرسمي", storeCoin: "عملة OKAP", storeSoon: "قريباً", storeNotice: "المتجر لم يُفتح بعد. الشراء غير متاح. الباقات معروضة للمعاينة فقط.", storePackage: "باقة", storeSep: ",",
     platform: "المنصة", availability: "التوفر", unavailable: "غير متاحة بعد",
   },
 } as const;
 
 export const routes = ["/", "/about", "/news", "/gallery", "/factions", "/team", "/rules", "/download", "/community", "/store"];
-export const coinPackages = [100, 500, 1000, 2500, 5000, 10000] as const;
+export const coinPackages = [
+  { coins: 100, price: "2.99" }, { coins: 500, price: "4.99" }, { coins: 1000, price: "9.99" },
+  { coins: 2500, price: "19.99" }, { coins: 5000, price: "39.99" }, { coins: 10000, price: "69.99" },
+] as const;
 export type PageKey = keyof typeof copy.en.pages;

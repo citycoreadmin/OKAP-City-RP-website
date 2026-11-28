@@ -77,9 +77,13 @@ test("store shows six OKAP Coins packages as coming soon with no purchase flow",
   assert.ok(routes.includes("/store"));
   for (const language of ["ht", "en", "fr", "ar"]) {
     assert.ok(copy[language].pages.store);
-    assert.ok(copy[language].storeSoon && copy[language].storePrice);
+    assert.ok(copy[language].storeSoon);
   }
   const page = await readFile(new URL("../components/site.tsx", import.meta.url), "utf8");
   assert.match(page, /coinPackages/);
+  const content = await readFile(new URL("../lib/content.ts", import.meta.url), "utf8");
+  const prices = [...content.matchAll(/coins: (\d+), price: "([\d.]+)"/g)].map(m => `${m[1]}:${m[2]}`);
+  assert.deepEqual(prices, ["100:2.99", "500:4.99", "1000:9.99", "2500:19.99", "5000:39.99", "10000:69.99"]);
+  assert.match(page, /<button[^>]*disabled/);
   assert.doesNotMatch(page, /checkout|stripe|paypal/i);
 });

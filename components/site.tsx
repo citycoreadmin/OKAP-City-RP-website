@@ -198,11 +198,11 @@ function CoinStore() {
   const t = useCopy();
   return <>
     <div className="development-notice"><span className="badge">{t.storeSoon}</span><p>{t.storeNotice}</p></div>
-    <div className="coin-grid">{coinPackages.map((amount, i) => <Reveal key={amount} className="coin-card">
+    <div className="coin-grid">{coinPackages.map(({ coins: amount, price }, i) => <Reveal key={amount} className="coin-card">
       <div className="coin-card-top"><span>{t.storePackage} 0{i + 1}</span><span className="coin-soon">{t.storeSoon}</span></div>
       <div className="coin-stage"><Coin size={96 + i * 9}/></div>
       <h3><strong>{formatCoins(amount, t.storeSep)}</strong> {t.storeCoin}</h3>
-      <p className="coin-price">{t.storePrice}</p>
+      <p className="coin-price" dir="ltr"><span className="coin-currency">$</span><span className="coin-amount">{price}</span><span className="coin-usd">USD</span></p>
       <button type="button" className="coin-button" disabled aria-disabled="true">{t.storeSoon}</button>
     </Reveal>)}</div>
   </>;
