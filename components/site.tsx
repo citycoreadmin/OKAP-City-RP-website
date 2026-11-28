@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { createContext, useContext, useEffect, useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
@@ -93,13 +94,23 @@ function TextLink({ href, children }: { href: string; children: React.ReactNode 
   return <Link className="text-link" href={href}>{children} <span><ArrowUpRight size={16}/></span></Link>;
 }
 
+const factionPhotos: Record<number, { src: string; width: number; height: number }> = {
+  1: { src: "/images/police.jpg", width: 1122, height: 1402 },
+  2: { src: "/images/army.jpg", width: 1121, height: 1120 },
+  3: { src: "/images/medics.jpg", width: 1122, height: 1402 },
+  8: { src: "/images/fbi.jpg", width: 1199, height: 1312 },
+};
+
 function FactionCards({ limit }: { limit?: number }) {
   const t = useCopy();
-  return <div className="faction-grid">{t.factions.slice(0, limit).map(([name, description], i) => <Reveal key={name} className="faction-card">
-    <div className="faction-card-top"><span>0{i + 1} / OKAP CITY</span><ArrowUpRight size={18}/></div>
-    <FactionScene index={i}/>
-    <div><h3>{name}</h3><p>{description}</p></div>
-  </Reveal>)}</div>;
+  return <div className="faction-grid">{t.factions.slice(0, limit).map(([name, description], i) => {
+    const photo = factionPhotos[i];
+    return <Reveal key={name} className={photo ? "faction-card faction-card-photo" : "faction-card"}>
+      <div className="faction-card-top"><span>0{i + 1} / OKAP CITY</span><ArrowUpRight size={18}/></div>
+      {photo ? <figure className="faction-photo"><Image src={photo.src} alt={name} width={photo.width} height={photo.height} quality={90} sizes="(max-width:650px) 100vw, (max-width:1100px) 50vw, 33vw"/><figcaption>{t.conceptVisual}</figcaption></figure> : <FactionScene index={i}/>}
+      <div><h3>{name}</h3><p>{description}</p></div>
+    </Reveal>;
+  })}</div>;
 }
 
 function DiscordMark() {
@@ -138,7 +149,7 @@ export function Home() {
   const t = useCopy();
   return <Shell><main id="main">
     <section className="hero">
-      <div className="hero-art" aria-hidden="true"/><div className="hero-noise" aria-hidden="true"/>
+      <div className="hero-art" aria-hidden="true"><Image src="/images/hero-city.jpg" alt="" fill priority quality={90} sizes="100vw" className="hero-photo"/></div><div className="hero-noise" aria-hidden="true"/>
       <div className="hero-side" aria-hidden="true"><span>OKAP CITY RP</span><span>{t.officialWebsite}</span></div>
       <div className="hero-content wrap">
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: .8 }}>
@@ -159,7 +170,7 @@ export function Home() {
     <section className="section feature-section"><div className="wrap"><Reveal><span className="section-label">{t.featureLabel}</span><div className="section-heading"><h2>{t.featureTitle}</h2><span className="heading-number">01 — 03</span></div></Reveal>
       <div className="features">{t.features.map(([title, description], i) => <Reveal key={title} className="feature"><div className="feature-icon">{[<Compass key="compass"/>, <Sparkles key="sparkles"/>, <Shield key="shield"/>][i]}<span>0{i + 1}</span></div><h3>{title}</h3><p>{description}</p></Reveal>)}</div>
     </div></section>
-    <section className="section faction-section wrap"><Reveal><span className="section-label">{t.factionLabel}</span><div className="section-heading"><div><h2>{t.factionTitle}</h2><p>{t.factionText}</p></div><TextLink href="/factions">{t.allFactions}</TextLink></div></Reveal><FactionCards limit={4}/></section>
+    <section className="section faction-section wrap"><Reveal><span className="section-label">{t.factionLabel}</span><div className="section-heading"><div><h2>{t.factionTitle}</h2><p>{t.factionText}</p></div><TextLink href="/factions">{t.allFactions}</TextLink></div></Reveal><FactionCards limit={6}/></section>
     <section className="section news-section"><div className="wrap"><Reveal><span className="section-label">{t.newsLabel}</span><div className="section-heading"><h2>{t.newsTitle}</h2><TextLink href="/news">{t.viewNews}</TextLink></div></Reveal><Reveal className="news-empty"><span className="news-date">OKAP CITY RP</span><div><span className="badge">{t.underDevelopment}</span><h3>{t.developmentText}</h3><Link className="news-community-link" href="/community">{t.joinCommunity} <ArrowUpRight size={15}/></Link></div><ArrowUpRight size={24}/></Reveal></div></section>
     <section className="section trailer-section wrap"><Reveal><span className="section-label">{t.trailerLabel}</span><div className="section-heading"><div><h2>{t.trailerLabel}</h2><p>{t.trailerIntro}</p></div><TextLink href="/community">{t.joinCommunity}</TextLink></div></Reveal><Reveal className="trailer-frame"><span className="badge">{t.coming}</span><span className="trailer-wordmark">OKAP CITY RP</span><span className="trailer-note">{t.trailerPending}</span></Reveal></section>
     <section className="section gallery-section wrap"><Reveal><span className="section-label">{t.galleryLabel}</span><div className="section-heading"><div><h2>{t.galleryTitle}</h2><p>{t.galleryText}</p></div><TextLink href="/gallery">{t.nav[3]}</TextLink></div></Reveal><Reveal className="gallery-preview"><span>OKAP CITY RP / {t.conceptArt}</span><span className="gallery-play" aria-hidden="true">{t.coming}</span><span>{t.trailerPending}</span></Reveal></section>

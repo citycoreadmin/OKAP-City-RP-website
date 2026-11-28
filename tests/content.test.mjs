@@ -12,7 +12,7 @@ test("all four languages cover the same public content and navigation", () => {
     assert.deepEqual(Object.keys(copy[language]).sort(), Object.keys(copy.en).sort());
     assert.deepEqual(Object.keys(copy[language].pages).sort(), Object.keys(copy.en.pages).sort());
     assert.equal(copy[language].nav.length, routes.length);
-    assert.equal(copy[language].factions.length, 8);
+    assert.equal(copy[language].factions.length, 9);
     assert.equal(copy[language].features.length, copy.en.features.length);
     assert.equal(copy[language].discordCommunities.length, 4);
     assert.ok(copy[language].communitySectionTitle);
