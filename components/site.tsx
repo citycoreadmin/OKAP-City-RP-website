@@ -29,7 +29,7 @@ export function SiteProvider({ children }: { children: React.ReactNode }) {
 }
 
 function Logo() {
-  return <Link href="/" className="logo" aria-label="OKAP CITY RP home"><span className="logo-mark">O<span>.</span></span><span className="logo-words">OKAP <b>CITY RP</b></span></Link>;
+  return <Link href="/" className="logo" aria-label="OKAP CITY RP home"><Image className="logo-img" src="/images/okap-logo.jpg" alt="" width={1536} height={1024} quality={90} sizes="72px"/><span className="logo-words">OKAP <b>CITY RP</b></span></Link>;
 }
 
 const socialAccounts = [
@@ -101,6 +101,7 @@ const factionPhotos: Record<number, { src: string; width: number; height: number
   1: { src: "/images/police.jpg", width: 1122, height: 1402 },
   2: { src: "/images/army.jpg", width: 1122, height: 1402 },
   3: { src: "/images/medics.jpg", width: 1122, height: 1402 },
+  4: { src: "/images/justice.jpg", width: 1672, height: 941 },
   8: { src: "/images/fbi.jpg", width: 1199, height: 1312 },
 };
 

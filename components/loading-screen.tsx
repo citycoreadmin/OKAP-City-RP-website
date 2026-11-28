@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useState } from "react";
 
 const MIN_DISPLAY_MS = 4000;
@@ -40,7 +41,7 @@ export function LoadingScreen({ label }: { label: string }) {
     <div className="loader-glow" aria-hidden="true"><span className="loader-glow-gold"/><span className="loader-glow-red"/></div>
     <div className="loader-particles" aria-hidden="true">{particles.map((p, i) => <i key={i} style={{ left: `${p.left}%`, width: p.size, height: p.size, animationDuration: `${p.duration}s`, animationDelay: `${p.delay}s` }}/>)}</div>
     <div className="loader-center">
-      <div className="loader-logo-wrap" aria-hidden="true"><span className="loader-halo"/><div className="loader-logo"><span className="logo-mark">O<span>.</span></span><span className="logo-words">OKAP <b>CITY RP</b></span></div></div>
+      <div className="loader-logo-wrap" aria-hidden="true"><span className="loader-halo"/><div className="loader-logo"><Image className="loader-logo-img" src="/images/okap-logo.jpg" alt="" width={1536} height={1024} priority quality={90} sizes="(max-width:650px) 90vw, 560px"/></div></div>
       <div className="loader-bar" aria-hidden="true"><span/></div>
       <p className="loader-label">{label}</p>
     </div>
