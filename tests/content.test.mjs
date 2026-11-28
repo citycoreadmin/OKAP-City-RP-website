@@ -101,3 +101,12 @@ test("roadmap config covers six phases in all languages without invented progres
   for (const update of roadmapUpdates) for (const language of ["ht", "en", "fr", "ar"]) assert.ok(update.title[language] && update.text[language]);
   for (const language of ["ht", "en", "fr", "ar"]) assert.equal(Object.keys(copy[language].roadStatuses).length, 4);
 });
+
+test("loading screen is translated, has a CSS failsafe and shows no fake percentage", async () => {
+  for (const language of ["ht", "en", "fr", "ar"]) assert.ok(copy[language].loadingLabel);
+  const css = await readFile(new URL("../app/globals.css", import.meta.url), "utf8");
+  assert.match(css, /animation:loader-failsafe/);
+  assert.match(css, /prefers-reduced-motion:reduce\)\{\.loader-particles/);
+  const loader = await readFile(new URL("../components/loading-screen.tsx", import.meta.url), "utf8");
+  assert.doesNotMatch(loader, /percent|progress|setInterval/i);
+});

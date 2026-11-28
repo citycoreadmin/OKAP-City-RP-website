@@ -60,6 +60,7 @@ export const copy = {
     storeLabel: "OFFICIAL STORE", storeCoin: "OKAP Coins", storeSoon: "COMING SOON", storeNotice: "The store is not open yet. Purchases are not available. Packages are shown for preview only.", storePackage: "PACKAGE", storeSep: ",",
     roadPhase: "PHASE", roadProgress: "PROGRESS", roadTbd: "Status to be announced", roadIncludes: "Includes", roadUpdatesLabel: "LATEST UPDATES", roadUpdatesTitle: "LATEST DEVELOPMENT UPDATES.", roadNoUpdates: "No development updates have been published yet. Verified updates will appear here.", roadNote: "Phase statuses and progress will be published here once verified development information is available.",
     roadStatuses: {"planned": "Planned", "inDevelopment": "In Development", "testing": "Testing", "completed": "Completed"},
+    loadingLabel: "Loading Experience…",
     platform: "PLATFORM", availability: "AVAILABILITY", unavailable: "Not yet available",
   },
   fr: {
@@ -119,6 +120,7 @@ export const copy = {
     storeLabel: "BOUTIQUE OFFICIELLE", storeCoin: "OKAP Coins", storeSoon: "BIENTÔT DISPONIBLE", storeNotice: "La boutique n'est pas encore ouverte. Aucun achat n'est possible. Les packs sont affichés à titre d'aperçu uniquement.", storePackage: "PACK", storeSep: " ",
     roadPhase: "PHASE", roadProgress: "PROGRESSION", roadTbd: "Statut à annoncer", roadIncludes: "Comprend", roadUpdatesLabel: "DERNIÈRES NOUVELLES", roadUpdatesTitle: "DERNIÈRES MISES À JOUR DU DÉVELOPPEMENT.", roadNoUpdates: "Aucune mise à jour du développement n'a encore été publiée. Les mises à jour vérifiées apparaîtront ici.", roadNote: "Les statuts et la progression des phases seront publiés ici dès que des informations de développement vérifiées seront disponibles.",
     roadStatuses: {"planned": "Prévu", "inDevelopment": "En développement", "testing": "En test", "completed": "Terminé"},
+    loadingLabel: "Chargement de l'expérience…",
     platform: "PLATEFORME", availability: "DISPONIBILITÉ", unavailable: "Pas encore disponible",
   },
   ht: {
@@ -178,6 +180,7 @@ export const copy = {
     storeLabel: "BOUTIK OFISYÈL", storeCoin: "OKAP Coins", storeSoon: "AP VINI BYENTÒT", storeNotice: "Boutik la poko louvri. Pa gen acha ki posib. Pake yo parèt kòm apèsi sèlman.", storePackage: "PAKE", storeSep: ",",
     roadPhase: "FAZ", roadProgress: "PWOGRÈ", roadTbd: "Estati ap anonse", roadIncludes: "Gen ladan l", roadUpdatesLabel: "DÈNYE NOUVÈL", roadUpdatesTitle: "DÈNYE ENFÒMASYON SOU DEVLOPMAN.", roadNoUpdates: "Poko gen enfòmasyon sou devlopman ki pibliye. Enfòmasyon verifye yo ap parèt isit la.", roadNote: "Estati ak pwogrè faz yo ap pibliye isit la le enfòmasyon devlopman verifye disponib.",
     roadStatuses: {"planned": "Planifye", "inDevelopment": "Ap devlope", "testing": "Ap teste", "completed": "Fini"},
+    loadingLabel: "Chajman eksperyans lan…",
     platform: "PLATFÒM", availability: "DISPONIBILITE", unavailable: "Poko disponib",
   },
   ar: {
@@ -237,6 +240,7 @@ export const copy = {
     storeLabel: "المتجر الرسمي", storeCoin: "عملة OKAP", storeSoon: "قريباً", storeNotice: "المتجر لم يُفتح بعد. الشراء غير متاح. الباقات معروضة للمعاينة فقط.", storePackage: "باقة", storeSep: ",",
     roadPhase: "المرحلة", roadProgress: "التقدم", roadTbd: "سيتم الإعلان عن الحالة", roadIncludes: "تشمل", roadUpdatesLabel: "آخر المستجدات", roadUpdatesTitle: "آخر تحديثات التطوير.", roadNoUpdates: "لم يتم نشر أي تحديثات تطوير بعد. ستظهر التحديثات الموثقة هنا.", roadNote: "ستُنشر حالات المراحل ونسب التقدم هنا عند توفر معلومات تطوير موثقة.",
     roadStatuses: {"planned": "مخطط", "inDevelopment": "قيد التطوير", "testing": "قيد الاختبار", "completed": "مكتمل"},
+    loadingLabel: "جارٍ تحميل التجربة…",
     platform: "المنصة", availability: "التوفر", unavailable: "غير متاحة بعد",
   },
 } as const;

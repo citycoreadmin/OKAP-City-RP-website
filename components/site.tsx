@@ -7,6 +7,7 @@ import { createContext, useContext, useEffect, useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import { ArrowDown, ArrowUpRight, Compass, Globe2, Menu, Play, Shield, Sparkles, X } from "lucide-react";
 import { coinPackages, copy, languages, routes, type Language, type PageKey } from "@/lib/content";
+import { LoadingScreen } from "@/components/loading-screen";
 import { Roadmap } from "@/components/roadmap";
 import { FactionScene } from "@/components/faction-scenes";
 
@@ -24,7 +25,7 @@ export function SiteProvider({ children }: { children: React.ReactNode }) {
     document.documentElement.dir = language === "ar" ? "rtl" : "ltr";
     localStorage.setItem("okap-language", language);
   }, [language]);
-  return <LanguageContext.Provider value={{ language, setLanguage }}>{children}</LanguageContext.Provider>;
+  return <LanguageContext.Provider value={{ language, setLanguage }}><LoadingScreen label={copy[language].loadingLabel}/>{children}</LanguageContext.Provider>;
 }
 
 function Logo() {
