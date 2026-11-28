@@ -31,7 +31,7 @@ test("main navigation maps to the requested public pages", () => {
 test("regional community cards use the official Discord invites and open safely in a new tab", async () => {
   const component = await readFile(new URL("../components/site.tsx", import.meta.url), "utf8");
   const expected = [
-    "https://discord.gg/VctPPQ2y8F",
+    "https://discord.gg/nw7PWS4grJ",
     "https://discord.gg/vYhbuZVmTG",
     "https://discord.gg/WEzAZvc3aU",
     "https://discord.gg/v2JFTjGHc8",

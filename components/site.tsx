@@ -119,7 +119,7 @@ function DiscordMark() {
 }
 
 const discordLinks = [
-  "https://discord.gg/VctPPQ2y8F",
+  "https://discord.gg/nw7PWS4grJ",
   "https://discord.gg/vYhbuZVmTG",
   "https://discord.gg/WEzAZvc3aU",
   "https://discord.gg/v2JFTjGHc8",
