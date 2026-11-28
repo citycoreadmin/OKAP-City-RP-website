@@ -4,7 +4,7 @@ export const languages: Record<Language, string> = { ht: "🇭🇹 Kreyòl", en:
 
 export const copy = {
   en: {
-    nav: ["Home", "About Us", "News & Updates", "Gallery", "Factions", "Our Team", "Game Rules", "Download", "Community", "Store", "Roadmap"],
+    nav: ["Home", "News & Updates", "Webstore", "Guides", "Development Roadmap", "Gallery", "Our Team", "Community", "Download Game"],
     join: "Join Discord", communityCTA: "Join the Community", download: "Download Game", trailer: "Watch Trailer",
     eyebrow: "A NEW WORLD AWAITS", welcome: "WELCOME TO", tagline: "Your City. Your Story. Your Destiny.",
     intro: "A city alive with possibility. A story only you can write. Welcome to your next chapter.",
@@ -34,6 +34,7 @@ export const copy = {
       about: ["A CITY WITH A STORY.", "OKAP CITY RP is a roleplay world shaped by its community. Whether you serve the city, start a business, or simply find your own way, your story belongs here."],
       news: ["THE LATEST FROM OKAP.", "Official announcements, development updates, and community news will appear here."],
       gallery: ["MOMENTS FROM THE CITY.", "Official screenshots and videos are on their way. Check back for a closer look at life in OKAP."],
+      guides: ["GUIDES.", "Discover every OKAP CITY RP faction and learn what each role is planned to offer."],
       factions: ["FIND YOUR PLACE.", "Every great city is made by its people. Explore the paths that make OKAP come alive."],
       team: ["THE PEOPLE BEHIND THE CITY.", "Meet the people building OKAP CITY RP. Official team profiles are coming soon."],
       rules: ["PLAY YOUR PART.", "Great stories start with respect. Official game rules will be published before the city opens."],
@@ -64,7 +65,7 @@ export const copy = {
     platform: "PLATFORM", availability: "AVAILABILITY", unavailable: "Not yet available",
   },
   fr: {
-    nav: ["Accueil", "À propos", "Actualités", "Galerie", "Factions", "Notre équipe", "Règles du jeu", "Télécharger", "Communauté", "Boutique", "Feuille de route"],
+    nav: ["Accueil", "Actualités", "Boutique", "Guides", "Feuille de route", "Galerie", "Notre équipe", "Communauté", "Télécharger le jeu"],
     join: "Rejoindre Discord", communityCTA: "Rejoindre la communauté", download: "Télécharger le jeu", trailer: "Voir la bande-annonce",
     eyebrow: "UN NOUVEAU MONDE VOUS ATTEND", welcome: "BIENVENUE À", tagline: "Votre ville. Votre histoire. Votre destin.",
     intro: "Une ville pleine de possibilités. Une histoire que vous seul pouvez écrire. Bienvenue dans votre prochain chapitre.",
@@ -94,6 +95,7 @@ export const copy = {
       about: ["UNE VILLE, UNE HISTOIRE.", "OKAP CITY RP est un monde de jeu de rôle façonné par sa communauté. Servez la ville, créez une entreprise ou tracez votre propre voie : votre histoire a sa place ici."],
       news: ["LES NOUVELLES D'OKAP.", "Les annonces officielles, les nouvelles du développement et de la communauté apparaîtront ici."],
       gallery: ["INSTANTS DE LA VILLE.", "Les captures d'écran et vidéos officielles arrivent bientôt. Revenez découvrir la vie à OKAP."],
+      guides: ["GUIDES.", "Découvrez toutes les factions d'OKAP CITY RP et ce que chaque rôle doit offrir."],
       factions: ["TROUVEZ VOTRE PLACE.", "Une ville vit grâce à ses habitants. Découvrez les voies qui donnent vie à OKAP."],
       team: ["LES VISAGES DE LA VILLE.", "Découvrez les personnes qui construisent OKAP CITY RP. Les profils officiels arrivent bientôt."],
       rules: ["JOUEZ VOTRE RÔLE.", "Les grandes histoires commencent par le respect. Les règles officielles seront publiées avant l'ouverture de la ville."],
@@ -124,7 +126,7 @@ export const copy = {
     platform: "PLATEFORME", availability: "DISPONIBILITÉ", unavailable: "Pas encore disponible",
   },
   ht: {
-    nav: ["Akèy", "Sou nou", "Nouvèl", "Galri", "Faksyon", "Ekip nou", "Règ jwèt la", "Telechaje", "Kominote", "Boutik", "Plan wout"],
+    nav: ["Akèy", "Nouvèl", "Boutik", "Gid", "Plan devlopman", "Galri", "Ekip nou", "Kominote", "Telechaje jwèt la"],
     join: "Antre sou Discord", communityCTA: "Antre nan kominote a", download: "Telechaje jwèt la", trailer: "Gade trelè a",
     eyebrow: "YON NOUVO MONN AP TANN OU", welcome: "BYENVENI NAN", tagline: "Vil ou. Istwa ou. Destine ou.",
     intro: "Yon vil ki chaje ak posiblite. Yon istwa se ou menm sèlman ki ka ekri l. Byenvini nan pwochen chapit ou.",
@@ -154,6 +156,7 @@ export const copy = {
       about: ["YON VIL KI GEN YON ISTWA.", "OKAP CITY RP se yon monn jwèt wòl kominote a ap fòme. Kit ou sèvi vil la, kreye yon biznis, oswa jwenn pwòp chemen ou, istwa ou gen plas li isit la."],
       news: ["DÈNYE NOUVÈL OKAP.", "Anons ofisyèl, nouvèl devlopman ak kominote a ap parèt isit la."],
       gallery: ["MOMAN NAN VIL LA.", "Imaj ak videyo ofisyèl yo ap vini byento. Retounen pou dekouvri lavi nan OKAP."],
+      guides: ["GID.", "Dekouvri tout faksyon OKAP CITY RP yo epi aprann sa chak wòl planifye pou ofri."],
       factions: ["JWENN PLAS OU.", "Moun yo fè yon vil vivan. Dekouvri chemen ki bay OKAP lavi."],
       team: ["MOUN KI DÈYÈ VIL LA.", "Rankontre moun k ap bati OKAP CITY RP. Pwofil ofisyèl ekip la ap vini byento."],
       rules: ["JWE WÒL OU.", "Gwo istwa kòmanse ak respè. Règ ofisyèl yo ap pibliye anvan vil la louvri."],
@@ -184,7 +187,7 @@ export const copy = {
     platform: "PLATFÒM", availability: "DISPONIBILITE", unavailable: "Poko disponib",
   },
   ar: {
-    nav: ["الرئيسية", "من نحن", "الأخبار والتحديثات", "المعرض", "الفصائل", "فريقنا", "قواعد اللعبة", "التنزيل", "المجتمع", "المتجر", "خارطة الطريق"],
+    nav: ["الرئيسية", "الأخبار والتحديثات", "المتجر", "الأدلة", "خارطة طريق التطوير", "المعرض", "فريقنا", "المجتمع", "تنزيل اللعبة"],
     join: "انضم إلى ديسكورد", communityCTA: "انضم إلى المجتمع", download: "تنزيل اللعبة", trailer: "شاهد الإعلان",
     eyebrow: "عالم جديد بانتظارك", welcome: "مرحباً بك في", tagline: "مدينتك. قصتك. مصيرك.",
     intro: "مدينة مليئة بالإمكانيات. قصة لا يكتبها سواك. أهلاً بك في فصلك الجديد.",
@@ -214,6 +217,7 @@ export const copy = {
       about: ["مدينة لها حكاية.", "OKAP CITY RP عالم لعب أدوار يصنعه مجتمعه. اخدم المدينة، ابدأ مشروعاً، أو اختر طريقك الخاص؛ قصتك تنتمي إلى هنا."],
       news: ["آخر أخبار أوكاب.", "ستُنشر هنا الإعلانات الرسمية وتحديثات التطوير وأخبار المجتمع."],
       gallery: ["لحظات من المدينة.", "الصور ومقاطع الفيديو الرسمية قريباً. عد لاكتشاف الحياة في أوكاب."],
+      guides: ["الأدلة.", "اكتشف جميع فصائل OKAP CITY RP وتعرّف على ما يُخطَّط أن يقدمه كل دور."],
       factions: ["اعثر على مكانك.", "يصنع الناس المدن العظيمة. اكتشف الأدوار التي تمنح أوكاب الحياة."],
       team: ["الأشخاص وراء المدينة.", "تعرّف على من يعملون على OKAP CITY RP. ملفات الفريق الرسمية قريباً."],
       rules: ["كن جزءاً من الحكاية.", "تبدأ القصص الرائعة بالاحترام. ستُنشر قواعد اللعبة الرسمية قبل افتتاح المدينة."],
@@ -245,7 +249,7 @@ export const copy = {
   },
 } as const;
 
-export const routes = ["/", "/about", "/news", "/gallery", "/factions", "/team", "/rules", "/download", "/community", "/store", "/roadmap"];
+export const routes = ["/", "/news", "/store", "/guides", "/roadmap", "/gallery", "/team", "/community", "/download"];
 export const coinPackages = [
   { coins: 100, price: "2.99" }, { coins: 500, price: "4.99" }, { coins: 1000, price: "9.99" },
   { coins: 2500, price: "19.99" }, { coins: 5000, price: "39.99" }, { coins: 10000, price: "69.99" },

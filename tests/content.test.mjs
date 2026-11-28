@@ -25,7 +25,7 @@ test("all four languages cover the same public content and navigation", () => {
 });
 
 test("main navigation maps to the requested public pages", () => {
-  assert.deepEqual(routes, ["/", "/about", "/news", "/gallery", "/factions", "/team", "/rules", "/download", "/community", "/store", "/roadmap"]);
+  assert.deepEqual(routes, ["/", "/news", "/store", "/guides", "/roadmap", "/gallery", "/team", "/community", "/download"]);
 });
 
 test("regional community cards use the official Discord invites and open safely in a new tab", async () => {
@@ -50,7 +50,7 @@ test("official social accounts are linked in the navigation, footer, and transla
     "https://youtube.com/@okapcityrp?si=KQy-T5c1XXvZ5O-9",
   ];
   assert.deepEqual([...component.matchAll(/"https:\/\/[^"]+"/g)].map(([link]) => link.slice(1, -1)).filter(link => /tiktok|instagram|x\.com|youtube/.test(link)), socialUrls);
-  assert.ok(component.includes('className="header-socials"'));
+  assert.ok(component.includes('className="menu-socials"'));
   assert.ok(component.includes('className="footer-socials"'));
   assert.ok(component.includes('className="section social-section wrap"'));
   assert.ok(component.includes('target="_blank" rel="noopener noreferrer"'));
@@ -79,7 +79,7 @@ test("store shows six OKAP Coins packages as coming soon with no purchase flow",
     assert.ok(copy[language].pages.store);
     assert.ok(copy[language].storeSoon);
   }
-  const page = await readFile(new URL("../components/site.tsx", import.meta.url), "utf8");
+  const page = await readFile(new URL("../components/store.tsx", import.meta.url), "utf8");
   assert.match(page, /coinPackages/);
   const content = await readFile(new URL("../lib/content.ts", import.meta.url), "utf8");
   const prices = [...content.matchAll(/coins: (\d+), price: "([\d.]+)"/g)].map(m => `${m[1]}:${m[2]}`);
@@ -109,4 +109,36 @@ test("loading screen is translated, has a CSS failsafe and shows no fake percent
   assert.match(css, /prefers-reduced-motion:reduce\)\{\.loader-particles/);
   const loader = await readFile(new URL("../components/loading-screen.tsx", import.meta.url), "utf8");
   assert.doesNotMatch(loader, /percent|progress|setInterval/i);
+});
+
+test("guides cover all nine factions with real images and no invented requirements", async () => {
+  const src = await readFile(new URL("../lib/guides.ts", import.meta.url), "utf8");
+  const js = ts.transpileModule(src, { compilerOptions: { module: ts.ModuleKind.ESNext } }).outputText;
+  const { guides } = await import(`data:text/javascript;base64,${Buffer.from(js).toString("base64")}`);
+  assert.deepEqual(guides.map(g => g.slug), ["government", "police", "army", "fbi", "medics", "department-of-justice", "civilian-life", "businesses", "transportation-services"]);
+  for (const guide of guides) {
+    await access(new URL(`../public${guide.image.src}`, import.meta.url));
+    for (const language of ["ht", "en", "fr", "ar"]) {
+      assert.ok(guide.name[language] && guide.summary[language] && guide.role[language]);
+      assert.ok(guide.responsibilities[language].length > 0 && guide.gameplay[language].length > 0);
+    }
+  }
+  const ui = await readFile(new URL("../lib/ui.ts", import.meta.url), "utf8");
+  assert.match(ui, /requirementsPending/);
+});
+
+test("footer has official Discord communities, social icons, and mobile game placeholders without fake links", async () => {
+  const component = await readFile(new URL("../components/site.tsx", import.meta.url), "utf8");
+  assert.ok(component.includes("function Footer()"));
+  assert.ok(component.includes("<Header/>{children}<Footer/>"));
+  assert.match(component, /<button type="button" className="store-badge" disabled/);
+  assert.doesNotMatch(component, /apps\.apple\.com|play\.google\.com/);
+  const content = await readFile(new URL("../lib/ui.ts", import.meta.url), "utf8");
+  assert.match(content, /appStore/);
+});
+
+test("every route has a static page, including guide and product detail pages", async () => {
+  for (const file of ["../app/guides/page.tsx", "../app/guides/[faction]/page.tsx", "../app/store/page.tsx", "../app/store/[package]/page.tsx"]) await access(new URL(file, import.meta.url));
+  const pageSource = await readFile(new URL("../app/[slug]/page.tsx", import.meta.url), "utf8");
+  for (const route of routes.filter(r => r !== "/" && r !== "/guides" && r !== "/store")) assert.ok(pageSource.includes(`"${route.slice(1)}"`), route);
 });
