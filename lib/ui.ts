@@ -127,3 +127,10 @@ export const homeCoins: Record<Language, { kicker: string; welcome: string; text
   ht: { kicker: "Byenveni", welcome: "BYENVENI NAN OKAP CITY RP", text: "Byenveni nan yon mond ki gen posibilite san limit! Nou kontan wè w rejwenn kominote nou an k ap grandi. Avantirè w la kòmanse isit la, epi nou pa ka tann pou nou pataje vwayaj ekstraòdinè sa a avè w." },
   ar: { kicker: "أهلاً بك", welcome: "مرحباً بك في OKAP CITY RP", text: "مرحباً بك في عالم من الاحتمالات اللامحدودة! يسعدنا انضمامك إلى مجتمعنا المتنامي. مغامرتك تبدأ من هنا، ولا يمكننا الانتظار لنشاركك هذه الرحلة الرائعة." },
 };
+
+export const customStore: Record<Language, { label: string; title: string; text: string; input: string; total: string; hint: string; invalid: string; rate: string }> = {
+  en: { label: "CUSTOM PACKAGE", title: "Custom OKAP Coins", text: "Choose the exact amount of OKAP Coins you want.", input: "Number of OKAP Coins", total: "Total price", hint: "Whole numbers from {min} to {max}.", invalid: "Enter a whole number from {min} to {max}.", rate: "Provisional rate: ${rate} per coin" },
+  fr: { label: "PACK PERSONNALISÉ", title: "OKAP Coins personnalisés", text: "Choisissez le nombre exact d'OKAP Coins que vous souhaitez.", input: "Nombre d'OKAP Coins", total: "Prix total", hint: "Nombres entiers de {min} à {max}.", invalid: "Saisissez un nombre entier de {min} à {max}.", rate: "Tarif provisoire : {rate} $ par pièce" },
+  ht: { label: "PAKE PèSONÈL", title: "OKAP Coins pèsonèl", text: "Chwazi kantite egzak OKAP Coins ou vle a.", input: "Kantite OKAP Coins", total: "Pri total", hint: "Nimewo antye ant {min} ak {max}.", invalid: "Antre yon nimewo antye ant {min} ak {max}.", rate: "To pwovizwa: ${rate} pou chak pyès" },
+  ar: { label: "باقة مخصصة", title: "عملات OKAP مخصصة", text: "اختر العدد الدقيق من عملات OKAP الذي تريده.", input: "عدد عملات OKAP", total: "السعر الإجمالي", hint: "أعداد صحيحة من {min} إلى {max}.", invalid: "أدخل عدداً صحيحاً من {min} إلى {max}.", rate: "السعر المبدئي: ${rate} لكل عملة" },
+};

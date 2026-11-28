@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
@@ -8,8 +9,8 @@ import { CinematicBanner } from "@/components/guides";
 import { HelicopterScene } from "@/components/helicopter-scene";
 import { Reveal, useCopy, useLanguage, useUi } from "@/components/context";
 import { coinPackages } from "@/lib/content";
-import { homeCoins } from "@/lib/ui";
-import { availableStoreArt, formatCoins, packageKinds, storeArtFiles, storeSlugs, type PackageKind } from "@/lib/store";
+import { customStore, homeCoins } from "@/lib/ui";
+import { customCoins, customTotal, availableStoreArt, formatCoins, packageKinds, storeArtFiles, storeSlugs, type PackageKind } from "@/lib/store";
 
 type Coin = { x: number; y: number; s: number };
 
@@ -52,6 +53,34 @@ function Price({ price }: { price: string }) {
   return <p className="coin-price" dir="ltr"><span className="coin-currency">$</span><span className="coin-amount">{price}</span><span className="coin-usd">USD</span></p>;
 }
 
+function CustomPackage() {
+  const t = useCopy();
+  const { language } = useLanguage();
+  const c = customStore[language];
+  const { min, max, pricePerCoin } = customCoins;
+  const [value, setValue] = useState("");
+  const amount = /^\d+$/.test(value) ? Number(value) : NaN;
+  const valid = amount >= min && amount <= max;
+  const fill = (text: string) => text.replace("{min}", formatCoins(min, t.storeSep)).replace("{max}", formatCoins(max, t.storeSep)).replace("{rate}", pricePerCoin.toFixed(2));
+  return <Reveal className="coin-card custom-card gold-frame">
+    <div className="coin-card-top"><span>{c.label}</span><span className="coin-soon">{t.storeSoon}</span></div>
+    <div className="custom-body">
+      <div className="custom-coins" aria-hidden="true">{[0, 1, 2, 3, 4].map(i => <i key={i} className="oc-coin" style={{ animationDelay: `${-i * .7}s` }}><b>OC</b></i>)}</div>
+      <div className="custom-form">
+        <h3>{c.title}</h3>
+        <p className="coin-kind">{c.text}</p>
+        <label htmlFor="custom-oc">{c.input}</label>
+        <input id="custom-oc" className="custom-input" type="text" inputMode="numeric" pattern="[0-9]*" dir="ltr" autoComplete="off" placeholder={formatCoins(min, t.storeSep)}
+          value={value} onChange={e => setValue(e.target.value.replace(/\D/g, "").slice(0, 6))} aria-invalid={value !== "" && !valid}/>
+        <p className={`custom-hint ${value !== "" && !valid ? "custom-hint-error" : ""}`} role="status">{fill(value !== "" && !valid ? c.invalid : c.hint)}</p>
+        <div className="custom-total"><span>{c.total}</span><Price price={valid ? customTotal(amount) : "0.00"}/></div>
+        <p className="custom-rate" dir="ltr">{fill(c.rate)}</p>
+        <button type="button" className="coin-button" disabled aria-disabled="true">{t.storeSoon}</button>
+      </div>
+    </div>
+  </Reveal>;
+}
+
 export function StorePage({ home = false }: { home?: boolean }) {
   const t = useCopy();
   const u = useUi();
@@ -75,6 +104,7 @@ export function StorePage({ home = false }: { home?: boolean }) {
         <Link className="coin-details" href={`/store/${storeSlugs[i]}`}>{u.store.viewDetails}<ArrowUpRight size={15}/></Link>
         <button type="button" className="coin-button" disabled aria-disabled="true">{t.storeSoon}</button>
       </Reveal>)}</div>
+      <CustomPackage/>
     </section>
   </main></Shell>;
 }

@@ -20,3 +20,10 @@ export function availableStoreArt(): string[] {
 export function formatCoins(amount: number, separator: string) {
   return String(amount).replace(/\B(?=(\d{3})+(?!\d))/g, separator);
 }
+
+// Provisional custom-package pricing; change the rate here only.
+export const customCoins = { pricePerCoin: 0.01, min: 100, max: 50000 };
+
+export function customTotal(amount: number) {
+  return (Math.round(amount * customCoins.pricePerCoin * 100) / 100).toFixed(2);
+}
