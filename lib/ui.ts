@@ -120,3 +120,10 @@ export const ui: Record<Language, UiCopy> = {
     },
   },
 };
+
+export const homeCoins: Record<Language, { kicker: string; welcome: string; text: string; cta: string }> = {
+  en: { kicker: "Welcome", welcome: "Welcome to OKAP CITY RP", text: "A new city is rising. Step inside, meet the community and discover what is coming.", cta: "Discover OKAP Coins" },
+  fr: { kicker: "Bienvenue", welcome: "Bienvenue à OKAP CITY RP", text: "Une nouvelle ville se construit. Entrez, rencontrez la communauté et découvrez ce qui arrive.", cta: "Découvrir les OKAP Coins" },
+  ht: { kicker: "Byenveni", welcome: "Byenveni nan OKAP CITY RP", text: "Yon nouvo vil ap leve. Antre, rankontre kominote a epi dekouvri sa k ap vini.", cta: "Dekouvri OKAP Coins" },
+  ar: { kicker: "أهلاً بك", welcome: "مرحباً بك في OKAP CITY RP", text: "مدينة جديدة تنهض. ادخل، تعرّف على المجتمع واكتشف ما هو قادم.", cta: "اكتشف عملات OKAP" },
+};

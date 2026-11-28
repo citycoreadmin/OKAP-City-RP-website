@@ -8,6 +8,8 @@ import { AnimatePresence, motion } from "framer-motion";
 import { ArrowDown, ArrowUpRight, Compass, Globe2, Menu, Play, Shield, Smartphone, Sparkles, X } from "lucide-react";
 import { copy, languages, routes, type Language, type PageKey } from "@/lib/content";
 import { guides } from "@/lib/guides";
+import { homeCoins } from "@/lib/ui";
+import { storeArtFiles, availableStoreArt } from "@/lib/store";
 import { LoadingScreen } from "@/components/loading-screen";
 import { Roadmap } from "@/components/roadmap";
 import { GuideCard } from "@/components/guide-card";
@@ -179,7 +181,24 @@ function SocialCards() {
 
 export function Home() {
   const t = useCopy();
+  const u = useUi();
+  const { language } = useLanguage();
+  const hc = homeCoins[language];
+  const hasBanner = availableStoreArt().includes(storeArtFiles.banner);
   return <Shell><main id="main">
+    <section className="cine-banner home-coins">
+      <div className="cine-banner-art" aria-hidden="true"><Image src={hasBanner ? `/images/store/${storeArtFiles.banner}` : "/images/hero-city.jpg"} alt="" fill priority quality={90} sizes="100vw" style={{ objectPosition: hasBanner ? "50% 50%" : "70% 60%" }}/></div>
+      <div className="cine-banner-content wrap">
+        <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: .8 }}>
+          <span className="section-label">{hc.kicker}</span>
+          <p className="home-welcome">{hc.welcome}</p>
+          <h1>{u.store.bannerTitle}</h1>
+          <p>{t.pages.store[1]}</p>
+          <div className="hero-buttons"><Link className="button button-primary" href="/store">{hc.cta}<ArrowUpRight size={17}/></Link></div>
+          <p className="home-welcome-text">{hc.text}</p>
+        </motion.div>
+      </div>
+    </section>
     <section className="hero">
       <div className="hero-art" aria-hidden="true"><Image src="/images/hero-city.jpg" alt="" fill priority quality={90} sizes="100vw" className="hero-photo"/></div><div className="hero-noise" aria-hidden="true"/>
       <div className="hero-side" aria-hidden="true"><span>OKAP CITY RP</span><span>{t.officialWebsite}</span></div>
