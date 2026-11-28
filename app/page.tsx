@@ -1,2 +1,2 @@
-import { Home } from "@/components/site";
-export default function Page() { return <Home />; }
+import { StorePage } from "@/components/store";
+export default function Page() { return <StorePage home />; }

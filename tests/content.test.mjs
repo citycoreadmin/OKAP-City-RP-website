@@ -41,7 +41,7 @@ test("regional community cards use the official Discord invites and open safely 
   for (const community of copy.en.discordCommunities) assert.ok(community.every(Boolean));
 });
 
-test("official social accounts are linked in the navigation, footer, and translated homepage section", async () => {
+test("official social accounts are linked in the navigation, and footer", async () => {
   const component = await readFile(new URL("../components/site.tsx", import.meta.url), "utf8");
   const socialUrls = [
     "https://www.tiktok.com/@themooo5?_r=1&_t=ZP-9BlWoFDvEY3",
@@ -52,7 +52,6 @@ test("official social accounts are linked in the navigation, footer, and transla
   assert.deepEqual([...component.matchAll(/"https:\/\/[^"]+"/g)].map(([link]) => link.slice(1, -1)).filter(link => /tiktok|instagram|x\.com|youtube/.test(link)), socialUrls);
   assert.ok(component.includes('className="menu-socials"'));
   assert.ok(component.includes('className="footer-socials"'));
-  assert.ok(component.includes('className="section social-section wrap"'));
   assert.ok(component.includes('target="_blank" rel="noopener noreferrer"'));
   assert.equal(copy.en.followTitle, "STAY CONNECTED WITH OKAP CITY RP");
 });
@@ -141,4 +140,11 @@ test("every route has a static page, including guide and product detail pages", 
   for (const file of ["../app/guides/page.tsx", "../app/guides/[faction]/page.tsx", "../app/store/page.tsx", "../app/store/[package]/page.tsx"]) await access(new URL(file, import.meta.url));
   const pageSource = await readFile(new URL("../app/[slug]/page.tsx", import.meta.url), "utf8");
   for (const route of routes.filter(r => r !== "/" && r !== "/guides" && r !== "/store")) assert.ok(pageSource.includes(`"${route.slice(1)}"`), route);
+});
+
+test("the root page is the Webstore with welcome message and no old homepage", async () => {
+  const page = await readFile(new URL("../app/page.tsx", import.meta.url), "utf8");
+  const site = await readFile(new URL("../components/site.tsx", import.meta.url), "utf8");
+  assert.match(page, /<StorePage home/);
+  assert.ok(!site.includes('className="hero"') && !site.includes('className="ticker"'));
 });

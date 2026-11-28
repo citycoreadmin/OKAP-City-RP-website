@@ -12,12 +12,13 @@ import { categories, getGuide, guides, type GuideCategory } from "@/lib/guides";
 
 type Sort = "default" | "az" | "za";
 
-export function CinematicBanner({ title, text, label, image = "/images/hero-city.jpg", position = "60% 50%" }: { title: string; text: string; label: string; image?: string; position?: string }) {
-  return <section className="cine-banner">
+export function CinematicBanner({ title, text, label, image = "/images/hero-city.jpg", position = "60% 50%", className = "", intro }: { className?: string; intro?: React.ReactNode; title: string; text: string; label: string; image?: string; position?: string }) {
+  return <section className={`cine-banner ${className}`}>
     <div className="cine-banner-art" aria-hidden="true"><Image src={image} alt="" fill priority quality={90} sizes="100vw" style={{ objectPosition: position }}/></div>
     <div className="cine-banner-content wrap">
       <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: .8 }}>
         <span className="section-label">{label}</span>
+        {intro}
         <h1>{title}</h1>
         <p>{text}</p>
       </motion.div>

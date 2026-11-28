@@ -5,8 +5,9 @@ import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
 import { Shell, TextLink } from "@/components/site";
 import { CinematicBanner } from "@/components/guides";
-import { Reveal, useCopy, useUi } from "@/components/context";
+import { Reveal, useCopy, useLanguage, useUi } from "@/components/context";
 import { coinPackages } from "@/lib/content";
+import { homeCoins } from "@/lib/ui";
 import { availableStoreArt, formatCoins, packageKinds, storeArtFiles, storeSlugs, type PackageKind } from "@/lib/store";
 
 type Coin = { x: number; y: number; s: number };
@@ -50,14 +51,17 @@ function Price({ price }: { price: string }) {
   return <p className="coin-price" dir="ltr"><span className="coin-currency">$</span><span className="coin-amount">{price}</span><span className="coin-usd">USD</span></p>;
 }
 
-export function StorePage() {
+export function StorePage({ home = false }: { home?: boolean }) {
   const t = useCopy();
   const u = useUi();
   const [title, description] = t.pages.store;
+  const { language } = useLanguage();
+  const hc = homeCoins[language];
   const bannerFile = storeArtFiles.banner;
   const hasBanner = availableStoreArt().includes(bannerFile);
   return <Shell><main id="main" className="public-page store-page">
-    <CinematicBanner title={u.store.bannerTitle} text={description} label={t.storeLabel}
+    <CinematicBanner title={u.store.bannerTitle} text={description} label={home ? hc.kicker : t.storeLabel} className={home ? "home-coins" : ""}
+      intro={home ? <div className="home-welcome-block"><p className="home-welcome">{hc.welcome}</p><p className="home-welcome-text">{hc.text}</p></div> : undefined}
       image={hasBanner ? `/images/store/${bannerFile}` : "/images/hero-city.jpg"} position={hasBanner ? "50% 50%" : "70% 60%"}/>
     <section className="section wrap">
       <div className="development-notice"><span className="badge">{t.storeSoon}</span><p>{u.store.notice}</p><span className="sr-only">{title}</span></div>

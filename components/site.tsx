@@ -8,8 +8,6 @@ import { AnimatePresence, motion } from "framer-motion";
 import { ArrowDown, ArrowUpRight, Compass, Globe2, Menu, Play, Shield, Smartphone, Sparkles, X } from "lucide-react";
 import { copy, languages, routes, type Language, type PageKey } from "@/lib/content";
 import { guides } from "@/lib/guides";
-import { homeCoins } from "@/lib/ui";
-import { storeArtFiles, availableStoreArt } from "@/lib/store";
 import { LoadingScreen } from "@/components/loading-screen";
 import { Roadmap } from "@/components/roadmap";
 import { GuideCard } from "@/components/guide-card";
@@ -177,57 +175,6 @@ function SocialCards() {
       <span className="social-card-action">{t.followButton}<ArrowUpRight size={16}/></span>
     </a>
   </Reveal>)}</div>;
-}
-
-export function Home() {
-  const t = useCopy();
-  const u = useUi();
-  const { language } = useLanguage();
-  const hc = homeCoins[language];
-  const hasBanner = availableStoreArt().includes(storeArtFiles.banner);
-  return <Shell><main id="main">
-    <section className="cine-banner home-coins">
-      <div className="cine-banner-art" aria-hidden="true"><Image src={hasBanner ? `/images/store/${storeArtFiles.banner}` : "/images/hero-city.jpg"} alt="" fill priority quality={90} sizes="100vw" style={{ objectPosition: hasBanner ? "50% 50%" : "70% 60%" }}/></div>
-      <div className="cine-banner-content wrap">
-        <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: .8 }}>
-          <span className="section-label">{hc.kicker}</span>
-          <p className="home-welcome">{hc.welcome}</p>
-          <h1>{u.store.bannerTitle}</h1>
-          <p>{t.pages.store[1]}</p>
-          <div className="hero-buttons"><Link className="button button-primary" href="/store">{hc.cta}<ArrowUpRight size={17}/></Link></div>
-          <p className="home-welcome-text">{hc.text}</p>
-        </motion.div>
-      </div>
-    </section>
-    <section className="hero">
-      <div className="hero-art" aria-hidden="true"><Image src="/images/hero-city.jpg" alt="" fill priority quality={90} sizes="100vw" className="hero-photo"/></div><div className="hero-noise" aria-hidden="true"/>
-      <div className="hero-side" aria-hidden="true"><span>OKAP CITY RP</span><span>{t.officialWebsite}</span></div>
-      <div className="hero-content wrap">
-        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: .8 }}>
-          <div className="hero-eyebrow"><span className="red-line"/>{t.eyebrow}<span className="eyebrow-index"> / 01</span></div>
-          <p className="hero-welcome">{t.welcome}</p><h1>OKAP CITY<span>RP<span className="hero-period">.</span></span></h1>
-          <p className="hero-tagline">{t.tagline}</p><p className="hero-intro">{t.intro}</p>
-          <div className="hero-buttons"><Link className="button button-primary" href="/community">{t.communityCTA}<ArrowUpRight size={17}/></Link><Link className="button button-outline" href="/download">{t.download}<ArrowDown size={16}/></Link></div>
-          <div className="hero-secondary"><span><Play size={13} fill="currentColor"/> {t.trailerPending}</span><span className="secondary-divider"/><Link href="/community">{t.join}</Link></div>
-        </motion.div>
-      </div>
-      <div className="hero-bottom wrap"><a href="#world"><span className="scroll-icon"><ArrowDown size={15}/></span>{t.scroll}</a><span className="hero-status"><i/> {t.online}</span><span className="hero-number">01 — 06</span></div>
-    </section>
-    <div className="ticker" aria-hidden="true"><div>{t.tagline} <span>✦</span> OKAP CITY RP <span>✦</span> {t.tagline} <span>✦</span> OKAP CITY RP <span>✦</span></div></div>
-    <section id="world" className="section world-section wrap">
-      <Reveal className="world-copy"><span className="section-label">{t.aboutLabel}</span><h2>{t.aboutTitle}<br/><em>{t.aboutAccent}</em></h2><p>{t.aboutText}</p><TextLink href="/about">{t.explore}</TextLink></Reveal>
-      <Reveal className="world-image"><div className="image-cross">+</div><div className="image-caption"><span>OKAP CITY RP</span><span>{t.conceptArt}</span></div><div className="image-frame-text">{t.imageFrame[0]}<br/>{t.imageFrame[1]}<span>.</span></div></Reveal>
-    </section>
-    <section className="section feature-section"><div className="wrap"><Reveal><span className="section-label">{t.featureLabel}</span><div className="section-heading"><h2>{t.featureTitle}</h2><span className="heading-number">01 — 03</span></div></Reveal>
-      <div className="features">{t.features.map(([title, description], i) => <Reveal key={title} className="feature"><div className="feature-icon">{[<Compass key="compass"/>, <Sparkles key="sparkles"/>, <Shield key="shield"/>][i]}<span>0{i + 1}</span></div><h3>{title}</h3><p>{description}</p></Reveal>)}</div>
-    </div></section>
-    <section className="section faction-section wrap"><Reveal><span className="section-label">{t.factionLabel}</span><div className="section-heading"><div><h2>{t.factionTitle}</h2><p>{t.factionText}</p></div><TextLink href="/guides">{t.allFactions}</TextLink></div></Reveal><div className="guide-grid">{guides.slice(0, 6).map((guide, i) => <GuideCard key={guide.slug} guide={guide} index={i}/>)}</div></section>
-    <section className="section news-section"><div className="wrap"><Reveal><span className="section-label">{t.newsLabel}</span><div className="section-heading"><h2>{t.newsTitle}</h2><TextLink href="/news">{t.viewNews}</TextLink></div></Reveal><Reveal className="news-empty"><span className="news-date">OKAP CITY RP</span><div><span className="badge">{t.underDevelopment}</span><h3>{t.developmentText}</h3><Link className="news-community-link" href="/community">{t.joinCommunity} <ArrowUpRight size={15}/></Link></div><ArrowUpRight size={24}/></Reveal></div></section>
-    <section className="section trailer-section wrap"><Reveal><span className="section-label">{t.trailerLabel}</span><div className="section-heading"><div><h2>{t.trailerLabel}</h2><p>{t.trailerIntro}</p></div><TextLink href="/community">{t.joinCommunity}</TextLink></div></Reveal><Reveal className="trailer-frame"><span className="badge">{t.coming}</span><span className="trailer-wordmark">OKAP CITY RP</span><span className="trailer-note">{t.trailerPending}</span></Reveal></section>
-    <section className="section gallery-section wrap"><Reveal><span className="section-label">{t.galleryLabel}</span><div className="section-heading"><div><h2>{t.galleryTitle}</h2><p>{t.galleryText}</p></div><TextLink href="/gallery">{t.nav[3]}</TextLink></div></Reveal><Reveal className="gallery-preview"><span>OKAP CITY RP / {t.conceptArt}</span><span className="gallery-play" aria-hidden="true">{t.coming}</span><span>{t.trailerPending}</span></Reveal></section>
-    <section className="community-section"><div className="community-art" aria-hidden="true"/><div className="wrap community-inner"><Reveal><span className="section-label">{t.communityLabel}</span><h2>{t.communityTitle}<br/><em>{t.communityAccent}</em></h2><p>{t.communityText}</p><h3 className="community-section-title">{t.communitySectionTitle}</h3><p>{t.communitySectionIntro}</p></Reveal><CommunityCards/></div></section>
-    <section className="section social-section wrap"><Reveal><span className="section-label">{t.followUs}</span><div className="section-heading"><div><h2>{t.followTitle}</h2><p>{t.followText}</p></div></div></Reveal><SocialCards/></section>
-  </main></Shell>;
 }
 
 export function PublicPage({ page }: { page: PageKey }) {

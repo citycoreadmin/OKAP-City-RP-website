@@ -121,9 +121,9 @@ export const ui: Record<Language, UiCopy> = {
   },
 };
 
-export const homeCoins: Record<Language, { kicker: string; welcome: string; text: string; cta: string }> = {
-  en: { kicker: "Welcome", welcome: "Welcome to OKAP CITY RP", text: "A new city is rising. Step inside, meet the community and discover what is coming.", cta: "Discover OKAP Coins" },
-  fr: { kicker: "Bienvenue", welcome: "Bienvenue à OKAP CITY RP", text: "Une nouvelle ville se construit. Entrez, rencontrez la communauté et découvrez ce qui arrive.", cta: "Découvrir les OKAP Coins" },
-  ht: { kicker: "Byenveni", welcome: "Byenveni nan OKAP CITY RP", text: "Yon nouvo vil ap leve. Antre, rankontre kominote a epi dekouvri sa k ap vini.", cta: "Dekouvri OKAP Coins" },
-  ar: { kicker: "أهلاً بك", welcome: "مرحباً بك في OKAP CITY RP", text: "مدينة جديدة تنهض. ادخل، تعرّف على المجتمع واكتشف ما هو قادم.", cta: "اكتشف عملات OKAP" },
+export const homeCoins: Record<Language, { kicker: string; welcome: string; text: string }> = {
+  en: { kicker: "Welcome", welcome: "WELCOME TO OKAP CITY RP", text: "Welcome to a world of endless possibilities! We are delighted to have you join our growing community. Your adventure begins here, and we cannot wait to share this incredible journey with you." },
+  fr: { kicker: "Bienvenue", welcome: "BIENVENUE À OKAP CITY RP", text: "Bienvenue dans un monde de possibilités infinies ! Nous sommes ravis de vous voir rejoindre notre communauté grandissante. Votre aventure commence ici, et nous avons hâte de partager ce voyage incroyable avec vous." },
+  ht: { kicker: "Byenveni", welcome: "BYENVENI NAN OKAP CITY RP", text: "Byenveni nan yon mond ki gen posibilite san limit! Nou kontan wè w rejwenn kominote nou an k ap grandi. Avantirè w la kòmanse isit la, epi nou pa ka tann pou nou pataje vwayaj ekstraòdinè sa a avè w." },
+  ar: { kicker: "أهلاً بك", welcome: "مرحباً بك في OKAP CITY RP", text: "مرحباً بك في عالم من الاحتمالات اللامحدودة! يسعدنا انضمامك إلى مجتمعنا المتنامي. مغامرتك تبدأ من هنا، ولا يمكننا الانتظار لنشاركك هذه الرحلة الرائعة." },
 };
