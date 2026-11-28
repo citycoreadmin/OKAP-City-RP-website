@@ -97,7 +97,7 @@ function TextLink({ href, children }: { href: string; children: React.ReactNode 
 const factionPhotos: Record<number, { src: string; width: number; height: number }> = {
   0: { src: "/images/president.jpg", width: 1199, height: 1312 },
   1: { src: "/images/police.jpg", width: 1122, height: 1402 },
-  2: { src: "/images/army.jpg", width: 1121, height: 1120 },
+  2: { src: "/images/army.jpg", width: 1122, height: 1402 },
   3: { src: "/images/medics.jpg", width: 1122, height: 1402 },
   8: { src: "/images/fbi.jpg", width: 1199, height: 1312 },
 };
