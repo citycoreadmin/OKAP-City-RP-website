@@ -25,7 +25,7 @@ test("all four languages cover the same public content and navigation", () => {
 });
 
 test("main navigation maps to the requested public pages", () => {
-  assert.deepEqual(routes, ["/", "/about", "/news", "/gallery", "/factions", "/team", "/rules", "/download", "/community", "/store"]);
+  assert.deepEqual(routes, ["/", "/about", "/news", "/gallery", "/factions", "/team", "/rules", "/download", "/community", "/store", "/roadmap"]);
 });
 
 test("regional community cards use the official Discord invites and open safely in a new tab", async () => {
@@ -86,4 +86,18 @@ test("store shows six OKAP Coins packages as coming soon with no purchase flow",
   assert.deepEqual(prices, ["100:2.99", "500:4.99", "1000:9.99", "2500:19.99", "5000:39.99", "10000:69.99"]);
   assert.match(page, /<button[^>]*disabled/);
   assert.doesNotMatch(page, /checkout|stripe|paypal/i);
+});
+
+test("roadmap config covers six phases in all languages without invented progress", async () => {
+  const src = await readFile(new URL("../lib/roadmap.ts", import.meta.url), "utf8");
+  const js = ts.transpileModule(src, { compilerOptions: { module: ts.ModuleKind.ESNext } }).outputText;
+  const { roadmapPhases, roadmapUpdates } = await import(`data:text/javascript;base64,${Buffer.from(js).toString("base64")}`);
+  assert.equal(roadmapPhases.length, 6);
+  for (const phase of roadmapPhases) {
+    assert.ok([null, "planned", "inDevelopment", "testing", "completed"].includes(phase.status));
+    assert.ok(phase.progress === null || (phase.status !== null && phase.progress >= 0 && phase.progress <= 100));
+    for (const language of ["ht", "en", "fr", "ar"]) assert.ok(phase.title[language] && phase.description[language] && Array.isArray(phase.items[language]));
+  }
+  for (const update of roadmapUpdates) for (const language of ["ht", "en", "fr", "ar"]) assert.ok(update.title[language] && update.text[language]);
+  for (const language of ["ht", "en", "fr", "ar"]) assert.equal(Object.keys(copy[language].roadStatuses).length, 4);
 });

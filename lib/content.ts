@@ -4,7 +4,7 @@ export const languages: Record<Language, string> = { ht: "🇭🇹 Kreyòl", en:
 
 export const copy = {
   en: {
-    nav: ["Home", "About Us", "News & Updates", "Gallery", "Factions", "Our Team", "Game Rules", "Download", "Community", "Store"],
+    nav: ["Home", "About Us", "News & Updates", "Gallery", "Factions", "Our Team", "Game Rules", "Download", "Community", "Store", "Roadmap"],
     join: "Join Discord", communityCTA: "Join the Community", download: "Download Game", trailer: "Watch Trailer",
     eyebrow: "A NEW WORLD AWAITS", welcome: "WELCOME TO", tagline: "Your City. Your Story. Your Destiny.",
     intro: "A city alive with possibility. A story only you can write. Welcome to your next chapter.",
@@ -37,6 +37,7 @@ export const copy = {
       factions: ["FIND YOUR PLACE.", "Every great city is made by its people. Explore the paths that make OKAP come alive."],
       team: ["THE PEOPLE BEHIND THE CITY.", "Meet the people building OKAP CITY RP. Official team profiles are coming soon."],
       rules: ["PLAY YOUR PART.", "Great stories start with respect. Official game rules will be published before the city opens."],
+      roadmap: ["DEVELOPMENT ROADMAP.", "Follow the road to OKAP CITY RP, from the first streets to the official launch."],
       store: ["OKAP COINS STORE.", "The official home of OKAP Coins, the in-game virtual currency of OKAP CITY RP. Packages are on display only while the store is in development."],
       download: ["YOUR STORY STARTS HERE.", "Choose your platform. Official downloads will be available here when released."],
       support: ["WE'RE HERE TO HELP.", "Official support channels will be announced soon. Please do not share sensitive information through unofficial channels."],
@@ -57,10 +58,12 @@ export const copy = {
       ["FBI", "Investigate serious crimes and protect the city from the shadows."],
     ],
     storeLabel: "OFFICIAL STORE", storeCoin: "OKAP Coins", storeSoon: "COMING SOON", storeNotice: "The store is not open yet. Purchases are not available. Packages are shown for preview only.", storePackage: "PACKAGE", storeSep: ",",
+    roadPhase: "PHASE", roadProgress: "PROGRESS", roadTbd: "Status to be announced", roadIncludes: "Includes", roadUpdatesLabel: "LATEST UPDATES", roadUpdatesTitle: "LATEST DEVELOPMENT UPDATES.", roadNoUpdates: "No development updates have been published yet. Verified updates will appear here.", roadNote: "Phase statuses and progress will be published here once verified development information is available.",
+    roadStatuses: {"planned": "Planned", "inDevelopment": "In Development", "testing": "Testing", "completed": "Completed"},
     platform: "PLATFORM", availability: "AVAILABILITY", unavailable: "Not yet available",
   },
   fr: {
-    nav: ["Accueil", "À propos", "Actualités", "Galerie", "Factions", "Notre équipe", "Règles du jeu", "Télécharger", "Communauté", "Boutique"],
+    nav: ["Accueil", "À propos", "Actualités", "Galerie", "Factions", "Notre équipe", "Règles du jeu", "Télécharger", "Communauté", "Boutique", "Feuille de route"],
     join: "Rejoindre Discord", communityCTA: "Rejoindre la communauté", download: "Télécharger le jeu", trailer: "Voir la bande-annonce",
     eyebrow: "UN NOUVEAU MONDE VOUS ATTEND", welcome: "BIENVENUE À", tagline: "Votre ville. Votre histoire. Votre destin.",
     intro: "Une ville pleine de possibilités. Une histoire que vous seul pouvez écrire. Bienvenue dans votre prochain chapitre.",
@@ -93,6 +96,7 @@ export const copy = {
       factions: ["TROUVEZ VOTRE PLACE.", "Une ville vit grâce à ses habitants. Découvrez les voies qui donnent vie à OKAP."],
       team: ["LES VISAGES DE LA VILLE.", "Découvrez les personnes qui construisent OKAP CITY RP. Les profils officiels arrivent bientôt."],
       rules: ["JOUEZ VOTRE RÔLE.", "Les grandes histoires commencent par le respect. Les règles officielles seront publiées avant l'ouverture de la ville."],
+      roadmap: ["FEUILLE DE ROUTE.", "Suivez la route vers OKAP CITY RP, des premières rues jusqu'au lancement officiel."],
       store: ["BOUTIQUE OKAP COINS.", "La boutique officielle des OKAP Coins, la monnaie virtuelle de OKAP CITY RP. Les packs sont présentés à titre d'aperçu pendant le développement de la boutique."],
       download: ["VOTRE HISTOIRE COMMENCE ICI.", "Choisissez votre plateforme. Les téléchargements officiels seront disponibles ici à leur sortie."],
       support: ["NOUS SOMMES LÀ POUR VOUS.", "Les canaux d'assistance officiels seront annoncés bientôt. Ne partagez pas d'informations sensibles sur des canaux non officiels."],
@@ -113,10 +117,12 @@ export const copy = {
       ["FBI", "Enquêtez sur les crimes graves et protégez la ville dans l'ombre."],
     ],
     storeLabel: "BOUTIQUE OFFICIELLE", storeCoin: "OKAP Coins", storeSoon: "BIENTÔT DISPONIBLE", storeNotice: "La boutique n'est pas encore ouverte. Aucun achat n'est possible. Les packs sont affichés à titre d'aperçu uniquement.", storePackage: "PACK", storeSep: " ",
+    roadPhase: "PHASE", roadProgress: "PROGRESSION", roadTbd: "Statut à annoncer", roadIncludes: "Comprend", roadUpdatesLabel: "DERNIÈRES NOUVELLES", roadUpdatesTitle: "DERNIÈRES MISES À JOUR DU DÉVELOPPEMENT.", roadNoUpdates: "Aucune mise à jour du développement n'a encore été publiée. Les mises à jour vérifiées apparaîtront ici.", roadNote: "Les statuts et la progression des phases seront publiés ici dès que des informations de développement vérifiées seront disponibles.",
+    roadStatuses: {"planned": "Prévu", "inDevelopment": "En développement", "testing": "En test", "completed": "Terminé"},
     platform: "PLATEFORME", availability: "DISPONIBILITÉ", unavailable: "Pas encore disponible",
   },
   ht: {
-    nav: ["Akèy", "Sou nou", "Nouvèl", "Galri", "Faksyon", "Ekip nou", "Règ jwèt la", "Telechaje", "Kominote", "Boutik"],
+    nav: ["Akèy", "Sou nou", "Nouvèl", "Galri", "Faksyon", "Ekip nou", "Règ jwèt la", "Telechaje", "Kominote", "Boutik", "Plan wout"],
     join: "Antre sou Discord", communityCTA: "Antre nan kominote a", download: "Telechaje jwèt la", trailer: "Gade trelè a",
     eyebrow: "YON NOUVO MONN AP TANN OU", welcome: "BYENVENI NAN", tagline: "Vil ou. Istwa ou. Destine ou.",
     intro: "Yon vil ki chaje ak posiblite. Yon istwa se ou menm sèlman ki ka ekri l. Byenvini nan pwochen chapit ou.",
@@ -149,6 +155,7 @@ export const copy = {
       factions: ["JWENN PLAS OU.", "Moun yo fè yon vil vivan. Dekouvri chemen ki bay OKAP lavi."],
       team: ["MOUN KI DÈYÈ VIL LA.", "Rankontre moun k ap bati OKAP CITY RP. Pwofil ofisyèl ekip la ap vini byento."],
       rules: ["JWE WÒL OU.", "Gwo istwa kòmanse ak respè. Règ ofisyèl yo ap pibliye anvan vil la louvri."],
+      roadmap: ["PLAN WOUT DEVLOPMAN.", "Swiv wout la jiska OKAP CITY RP, depi premye ri yo jiska lansman ofisyèl la."],
       store: ["BOUTIK OKAP COINS.", "Kote ofisyèl pou OKAP Coins, lajan vityèl nan jwèt OKAP CITY RP la. Pake yo parèt kòm apèsi sèlman pandan boutik la ap devlope."],
       download: ["ISTWA OU KÒMANSE ISIT LA.", "Chwazi platfòm ou. Telechajman ofisyèl yo ap disponib isit la lè yo lage."],
       support: ["NOU LA POU EDE OU.", "Chanèl sipò ofisyèl yo ap anonse byento. Pa pataje enfòmasyon sansib sou chanèl ki pa ofisyèl."],
@@ -169,10 +176,12 @@ export const copy = {
       ["FBI", "Mennen ankèt sou gwo krim epi pwoteje vil la nan lonbraj."],
     ],
     storeLabel: "BOUTIK OFISYÈL", storeCoin: "OKAP Coins", storeSoon: "AP VINI BYENTÒT", storeNotice: "Boutik la poko louvri. Pa gen acha ki posib. Pake yo parèt kòm apèsi sèlman.", storePackage: "PAKE", storeSep: ",",
+    roadPhase: "FAZ", roadProgress: "PWOGRÈ", roadTbd: "Estati ap anonse", roadIncludes: "Gen ladan l", roadUpdatesLabel: "DÈNYE NOUVÈL", roadUpdatesTitle: "DÈNYE ENFÒMASYON SOU DEVLOPMAN.", roadNoUpdates: "Poko gen enfòmasyon sou devlopman ki pibliye. Enfòmasyon verifye yo ap parèt isit la.", roadNote: "Estati ak pwogrè faz yo ap pibliye isit la le enfòmasyon devlopman verifye disponib.",
+    roadStatuses: {"planned": "Planifye", "inDevelopment": "Ap devlope", "testing": "Ap teste", "completed": "Fini"},
     platform: "PLATFÒM", availability: "DISPONIBILITE", unavailable: "Poko disponib",
   },
   ar: {
-    nav: ["الرئيسية", "من نحن", "الأخبار والتحديثات", "المعرض", "الفصائل", "فريقنا", "قواعد اللعبة", "التنزيل", "المجتمع", "المتجر"],
+    nav: ["الرئيسية", "من نحن", "الأخبار والتحديثات", "المعرض", "الفصائل", "فريقنا", "قواعد اللعبة", "التنزيل", "المجتمع", "المتجر", "خارطة الطريق"],
     join: "انضم إلى ديسكورد", communityCTA: "انضم إلى المجتمع", download: "تنزيل اللعبة", trailer: "شاهد الإعلان",
     eyebrow: "عالم جديد بانتظارك", welcome: "مرحباً بك في", tagline: "مدينتك. قصتك. مصيرك.",
     intro: "مدينة مليئة بالإمكانيات. قصة لا يكتبها سواك. أهلاً بك في فصلك الجديد.",
@@ -205,6 +214,7 @@ export const copy = {
       factions: ["اعثر على مكانك.", "يصنع الناس المدن العظيمة. اكتشف الأدوار التي تمنح أوكاب الحياة."],
       team: ["الأشخاص وراء المدينة.", "تعرّف على من يعملون على OKAP CITY RP. ملفات الفريق الرسمية قريباً."],
       rules: ["كن جزءاً من الحكاية.", "تبدأ القصص الرائعة بالاحترام. ستُنشر قواعد اللعبة الرسمية قبل افتتاح المدينة."],
+      roadmap: ["خارطة طريق التطوير.", "تابع الطريق نحو OKAP CITY RP، من أولى الشوارع حتى الإطلاق الرسمي."],
       store: ["متجر عملات OKAP.", "الوجهة الرسمية لعملات OKAP، العملة الافتراضية داخل لعبة OKAP CITY RP. الباقات معروضة للاطلاع فقط أثناء تطوير المتجر."],
       download: ["تبدأ قصتك هنا.", "اختر منصتك. ستتوفر التنزيلات الرسمية عند إصدارها."],
       support: ["نحن هنا للمساعدة.", "سيتم الإعلان عن قنوات الدعم الرسمية قريباً. لا تشارك معلومات حساسة عبر قنوات غير رسمية."],
@@ -225,11 +235,13 @@ export const copy = {
       ["مكتب التحقيقات الفيدرالي", "حقّق في الجرائم الخطيرة واحمِ المدينة من الظل."],
     ],
     storeLabel: "المتجر الرسمي", storeCoin: "عملة OKAP", storeSoon: "قريباً", storeNotice: "المتجر لم يُفتح بعد. الشراء غير متاح. الباقات معروضة للمعاينة فقط.", storePackage: "باقة", storeSep: ",",
+    roadPhase: "المرحلة", roadProgress: "التقدم", roadTbd: "سيتم الإعلان عن الحالة", roadIncludes: "تشمل", roadUpdatesLabel: "آخر المستجدات", roadUpdatesTitle: "آخر تحديثات التطوير.", roadNoUpdates: "لم يتم نشر أي تحديثات تطوير بعد. ستظهر التحديثات الموثقة هنا.", roadNote: "ستُنشر حالات المراحل ونسب التقدم هنا عند توفر معلومات تطوير موثقة.",
+    roadStatuses: {"planned": "مخطط", "inDevelopment": "قيد التطوير", "testing": "قيد الاختبار", "completed": "مكتمل"},
     platform: "المنصة", availability: "التوفر", unavailable: "غير متاحة بعد",
   },
 } as const;
 
-export const routes = ["/", "/about", "/news", "/gallery", "/factions", "/team", "/rules", "/download", "/community", "/store"];
+export const routes = ["/", "/about", "/news", "/gallery", "/factions", "/team", "/rules", "/download", "/community", "/store", "/roadmap"];
 export const coinPackages = [
   { coins: 100, price: "2.99" }, { coins: 500, price: "4.99" }, { coins: 1000, price: "9.99" },
   { coins: 2500, price: "19.99" }, { coins: 5000, price: "39.99" }, { coins: 10000, price: "69.99" },

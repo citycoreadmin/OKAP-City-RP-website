@@ -7,6 +7,7 @@ import { createContext, useContext, useEffect, useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import { ArrowDown, ArrowUpRight, Compass, Globe2, Menu, Play, Shield, Sparkles, X } from "lucide-react";
 import { coinPackages, copy, languages, routes, type Language, type PageKey } from "@/lib/content";
+import { Roadmap } from "@/components/roadmap";
 import { FactionScene } from "@/components/faction-scenes";
 
 const LanguageContext = createContext<{ language: Language; setLanguage: (language: Language) => void }>({ language: "en", setLanguage: () => {} });
@@ -75,7 +76,7 @@ function Footer() {
   const t = useCopy();
   return <footer className="footer"><div className="footer-top wrap">
     <div className="footer-brand"><Logo/><p>{t.footerText}</p><span className="footer-coordinates">{t.officialWebsite} &nbsp; / &nbsp; OKAP CITY RP</span><SocialLinks className="footer-socials"/></div>
-    <div><h3>{t.navigation}</h3>{[1, 2, 4, 7].map(i => <Link key={routes[i]} href={routes[i]}>{t.nav[i]}</Link>)}</div>
+    <div><h3>{t.navigation}</h3>{[1, 2, 4, 7, 10].map(i => <Link key={routes[i]} href={routes[i]}>{t.nav[i]}</Link>)}</div>
     <div><h3>{t.community}</h3><Link href="/community">{t.join}</Link><Link href="/team">{t.nav[5]}</Link></div>
     <div><h3>{t.legal}</h3><Link href="/privacy">{t.privacy}</Link><Link href="/terms">{t.terms}</Link><Link href="/guidelines">{t.guidelines}</Link></div>
   </div><div className="footer-bottom wrap"><span>© 2026 OKAP CITY RP. {t.rights}</span><span>{t.brandSlogan}</span></div></footer>;
@@ -210,11 +211,12 @@ function CoinStore() {
 
 export function PublicPage({ page }: { page: PageKey }) {
   const t = useCopy();
+  const { language } = useContext(LanguageContext);
   const [title, description] = t.pages[page];
   return <Shell><main id="main" className="public-page">
     <section className="page-hero"><div className="page-hero-art" aria-hidden="true"/><div className="wrap page-hero-content"><span className="section-label">{t.pageIntro}</span><h1>{title}</h1><p>{description}</p></div></section>
     <section className="section wrap page-content">
-      {page === "factions" ? <FactionCards/> : page === "store" ? <CoinStore/> : page === "community" ? <><div className="development-notice"><span className="badge">{t.underDevelopment}</span><p>{t.developmentText}</p></div><CommunityCards/></> : page === "download" ? <div className="platform-grid">{["iOS", "Android", "Windows", "macOS"].map((platform, i) => <div className="platform-card" key={platform}><div className="platform-top"><span>{t.platform} / 0{i + 1}</span><ArrowUpRight size={18}/></div><h2>{platform}</h2><div className="platform-status"><span>{t.availability}</span><strong>{t.coming}</strong></div><p>{t.unavailable}</p><Link className="news-community-link" href="/community">{t.joinCommunity} <ArrowUpRight size={15}/></Link></div>)}</div> : page === "news" || page === "gallery" ? <div className="page-placeholder"><span className="placeholder-index">{t.underDevelopment}</span><h2>{page === "news" ? t.newsTitle : t.galleryTitle}<span>.</span></h2><p>{page === "news" ? t.developmentText : `${description} ${t.trailerIntro}`}</p><Link className="news-community-link" href="/community">{t.joinCommunity} <ArrowUpRight size={15}/></Link></div> : <div className="page-placeholder"><span className="placeholder-index">OKAP CITY RP</span><h2>{t.coming}<span>.</span></h2><p>{description}</p></div>}
+      {page === "factions" ? <FactionCards/> : page === "store" ? <CoinStore/> : page === "roadmap" ? <Roadmap language={language} labels={t}/> : page === "community" ? <><div className="development-notice"><span className="badge">{t.underDevelopment}</span><p>{t.developmentText}</p></div><CommunityCards/></> : page === "download" ? <div className="platform-grid">{["iOS", "Android", "Windows", "macOS"].map((platform, i) => <div className="platform-card" key={platform}><div className="platform-top"><span>{t.platform} / 0{i + 1}</span><ArrowUpRight size={18}/></div><h2>{platform}</h2><div className="platform-status"><span>{t.availability}</span><strong>{t.coming}</strong></div><p>{t.unavailable}</p><Link className="news-community-link" href="/community">{t.joinCommunity} <ArrowUpRight size={15}/></Link></div>)}</div> : page === "news" || page === "gallery" ? <div className="page-placeholder"><span className="placeholder-index">{t.underDevelopment}</span><h2>{page === "news" ? t.newsTitle : t.galleryTitle}<span>.</span></h2><p>{page === "news" ? t.developmentText : `${description} ${t.trailerIntro}`}</p><Link className="news-community-link" href="/community">{t.joinCommunity} <ArrowUpRight size={15}/></Link></div> : <div className="page-placeholder"><span className="placeholder-index">OKAP CITY RP</span><h2>{t.coming}<span>.</span></h2><p>{description}</p></div>}
       <TextLink href="/">{t.back}</TextLink>
     </section>
   </main></Shell>;
