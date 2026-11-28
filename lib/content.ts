@@ -4,7 +4,7 @@ export const languages: Record<Language, string> = { ht: "🇭🇹 Kreyòl", en:
 
 export const copy = {
   en: {
-    nav: ["Home", "About Us", "News & Updates", "Gallery", "Factions", "Our Team", "Game Rules", "Download", "Community"],
+    nav: ["Home", "About Us", "News & Updates", "Gallery", "Factions", "Our Team", "Game Rules", "Download", "Community", "Store"],
     join: "Join Discord", communityCTA: "Join the Community", download: "Download Game", trailer: "Watch Trailer",
     eyebrow: "A NEW WORLD AWAITS", welcome: "WELCOME TO", tagline: "Your City. Your Story. Your Destiny.",
     intro: "A city alive with possibility. A story only you can write. Welcome to your next chapter.",
@@ -37,6 +37,7 @@ export const copy = {
       factions: ["FIND YOUR PLACE.", "Every great city is made by its people. Explore the paths that make OKAP come alive."],
       team: ["THE PEOPLE BEHIND THE CITY.", "Meet the people building OKAP CITY RP. Official team profiles are coming soon."],
       rules: ["PLAY YOUR PART.", "Great stories start with respect. Official game rules will be published before the city opens."],
+      store: ["OKAP COINS STORE.", "The official home of OKAP Coins, the in-game virtual currency of OKAP CITY RP. Packages are on display only while the store is in development."],
       download: ["YOUR STORY STARTS HERE.", "Choose your platform. Official downloads will be available here when released."],
       support: ["WE'RE HERE TO HELP.", "Official support channels will be announced soon. Please do not share sensitive information through unofficial channels."],
       community: ["JOIN OUR COMMUNITY.", "Find your regional OKAP CITY RP Discord community and follow development announcements in your language."],
@@ -55,10 +56,11 @@ export const copy = {
       ["Transportation Services", "Keep the city moving and connect its people."],
       ["FBI", "Investigate serious crimes and protect the city from the shadows."],
     ],
+    storeLabel: "OFFICIAL STORE", storeCoin: "OKAP Coins", storeSoon: "COMING SOON", storePrice: "Price Coming Soon", storeNotice: "The store is not open yet. Purchases are not available. Packages are shown for preview only.", storePackage: "PACKAGE", storeSep: ",",
     platform: "PLATFORM", availability: "AVAILABILITY", unavailable: "Not yet available",
   },
   fr: {
-    nav: ["Accueil", "À propos", "Actualités", "Galerie", "Factions", "Notre équipe", "Règles du jeu", "Télécharger", "Communauté"],
+    nav: ["Accueil", "À propos", "Actualités", "Galerie", "Factions", "Notre équipe", "Règles du jeu", "Télécharger", "Communauté", "Boutique"],
     join: "Rejoindre Discord", communityCTA: "Rejoindre la communauté", download: "Télécharger le jeu", trailer: "Voir la bande-annonce",
     eyebrow: "UN NOUVEAU MONDE VOUS ATTEND", welcome: "BIENVENUE À", tagline: "Votre ville. Votre histoire. Votre destin.",
     intro: "Une ville pleine de possibilités. Une histoire que vous seul pouvez écrire. Bienvenue dans votre prochain chapitre.",
@@ -91,6 +93,7 @@ export const copy = {
       factions: ["TROUVEZ VOTRE PLACE.", "Une ville vit grâce à ses habitants. Découvrez les voies qui donnent vie à OKAP."],
       team: ["LES VISAGES DE LA VILLE.", "Découvrez les personnes qui construisent OKAP CITY RP. Les profils officiels arrivent bientôt."],
       rules: ["JOUEZ VOTRE RÔLE.", "Les grandes histoires commencent par le respect. Les règles officielles seront publiées avant l'ouverture de la ville."],
+      store: ["BOUTIQUE OKAP COINS.", "La boutique officielle des OKAP Coins, la monnaie virtuelle de OKAP CITY RP. Les packs sont présentés à titre d'aperçu pendant le développement de la boutique."],
       download: ["VOTRE HISTOIRE COMMENCE ICI.", "Choisissez votre plateforme. Les téléchargements officiels seront disponibles ici à leur sortie."],
       support: ["NOUS SOMMES LÀ POUR VOUS.", "Les canaux d'assistance officiels seront annoncés bientôt. Ne partagez pas d'informations sensibles sur des canaux non officiels."],
       community: ["REJOIGNEZ NOTRE COMMUNAUTÉ.", "Retrouvez le Discord régional d'OKAP CITY RP et suivez le développement dans votre langue."],
@@ -109,10 +112,11 @@ export const copy = {
       ["Services de transport", "Faites bouger la ville et rapprochez ses habitants."],
       ["FBI", "Enquêtez sur les crimes graves et protégez la ville dans l'ombre."],
     ],
+    storeLabel: "BOUTIQUE OFFICIELLE", storeCoin: "OKAP Coins", storeSoon: "BIENTÔT DISPONIBLE", storePrice: "Prix bientôt disponible", storeNotice: "La boutique n'est pas encore ouverte. Aucun achat n'est possible. Les packs sont affichés à titre d'aperçu uniquement.", storePackage: "PACK", storeSep: " ",
     platform: "PLATEFORME", availability: "DISPONIBILITÉ", unavailable: "Pas encore disponible",
   },
   ht: {
-    nav: ["Akèy", "Sou nou", "Nouvèl", "Galri", "Faksyon", "Ekip nou", "Règ jwèt la", "Telechaje", "Kominote"],
+    nav: ["Akèy", "Sou nou", "Nouvèl", "Galri", "Faksyon", "Ekip nou", "Règ jwèt la", "Telechaje", "Kominote", "Boutik"],
     join: "Antre sou Discord", communityCTA: "Antre nan kominote a", download: "Telechaje jwèt la", trailer: "Gade trelè a",
     eyebrow: "YON NOUVO MONN AP TANN OU", welcome: "BYENVENI NAN", tagline: "Vil ou. Istwa ou. Destine ou.",
     intro: "Yon vil ki chaje ak posiblite. Yon istwa se ou menm sèlman ki ka ekri l. Byenvini nan pwochen chapit ou.",
@@ -145,6 +149,7 @@ export const copy = {
       factions: ["JWENN PLAS OU.", "Moun yo fè yon vil vivan. Dekouvri chemen ki bay OKAP lavi."],
       team: ["MOUN KI DÈYÈ VIL LA.", "Rankontre moun k ap bati OKAP CITY RP. Pwofil ofisyèl ekip la ap vini byento."],
       rules: ["JWE WÒL OU.", "Gwo istwa kòmanse ak respè. Règ ofisyèl yo ap pibliye anvan vil la louvri."],
+      store: ["BOUTIK OKAP COINS.", "Kote ofisyèl pou OKAP Coins, lajan vityèl nan jwèt OKAP CITY RP la. Pake yo parèt kòm apèsi sèlman pandan boutik la ap devlope."],
       download: ["ISTWA OU KÒMANSE ISIT LA.", "Chwazi platfòm ou. Telechajman ofisyèl yo ap disponib isit la lè yo lage."],
       support: ["NOU LA POU EDE OU.", "Chanèl sipò ofisyèl yo ap anonse byento. Pa pataje enfòmasyon sansib sou chanèl ki pa ofisyèl."],
       community: ["VIN NAN KOMINOTE NOU AN.", "Jwenn kominote Discord OKAP CITY RP nan rejyon ou epi suiv nouvèl devlopman yo nan lang ou."],
@@ -163,10 +168,11 @@ export const copy = {
       ["Sèvis transpò", "Fè vil la deplase epi konekte moun yo."],
       ["FBI", "Mennen ankèt sou gwo krim epi pwoteje vil la nan lonbraj."],
     ],
+    storeLabel: "BOUTIK OFISYÈL", storeCoin: "OKAP Coins", storeSoon: "AP VINI BYENTÒT", storePrice: "Pri ap vini byentòt", storeNotice: "Boutik la poko louvri. Pa gen acha ki posib. Pake yo parèt kòm apèsi sèlman.", storePackage: "PAKE", storeSep: ",",
     platform: "PLATFÒM", availability: "DISPONIBILITE", unavailable: "Poko disponib",
   },
   ar: {
-    nav: ["الرئيسية", "من نحن", "الأخبار والتحديثات", "المعرض", "الفصائل", "فريقنا", "قواعد اللعبة", "التنزيل", "المجتمع"],
+    nav: ["الرئيسية", "من نحن", "الأخبار والتحديثات", "المعرض", "الفصائل", "فريقنا", "قواعد اللعبة", "التنزيل", "المجتمع", "المتجر"],
     join: "انضم إلى ديسكورد", communityCTA: "انضم إلى المجتمع", download: "تنزيل اللعبة", trailer: "شاهد الإعلان",
     eyebrow: "عالم جديد بانتظارك", welcome: "مرحباً بك في", tagline: "مدينتك. قصتك. مصيرك.",
     intro: "مدينة مليئة بالإمكانيات. قصة لا يكتبها سواك. أهلاً بك في فصلك الجديد.",
@@ -199,6 +205,7 @@ export const copy = {
       factions: ["اعثر على مكانك.", "يصنع الناس المدن العظيمة. اكتشف الأدوار التي تمنح أوكاب الحياة."],
       team: ["الأشخاص وراء المدينة.", "تعرّف على من يعملون على OKAP CITY RP. ملفات الفريق الرسمية قريباً."],
       rules: ["كن جزءاً من الحكاية.", "تبدأ القصص الرائعة بالاحترام. ستُنشر قواعد اللعبة الرسمية قبل افتتاح المدينة."],
+      store: ["متجر عملات OKAP.", "الوجهة الرسمية لعملات OKAP، العملة الافتراضية داخل لعبة OKAP CITY RP. الباقات معروضة للاطلاع فقط أثناء تطوير المتجر."],
       download: ["تبدأ قصتك هنا.", "اختر منصتك. ستتوفر التنزيلات الرسمية عند إصدارها."],
       support: ["نحن هنا للمساعدة.", "سيتم الإعلان عن قنوات الدعم الرسمية قريباً. لا تشارك معلومات حساسة عبر قنوات غير رسمية."],
       community: ["انضم إلى مجتمعنا.", "اعثر على مجتمع ديسكورد الإقليمي لـ OKAP CITY RP وتابع أخبار التطوير بلغتك."],
@@ -217,9 +224,11 @@ export const copy = {
       ["خدمات النقل", "أبقِ المدينة متحركة واربط بين سكانها."],
       ["مكتب التحقيقات الفيدرالي", "حقّق في الجرائم الخطيرة واحمِ المدينة من الظل."],
     ],
+    storeLabel: "المتجر الرسمي", storeCoin: "عملة OKAP", storeSoon: "قريباً", storePrice: "السعر قريباً", storeNotice: "المتجر لم يُفتح بعد. الشراء غير متاح. الباقات معروضة للمعاينة فقط.", storePackage: "باقة", storeSep: ",",
     platform: "المنصة", availability: "التوفر", unavailable: "غير متاحة بعد",
   },
 } as const;
 
-export const routes = ["/", "/about", "/news", "/gallery", "/factions", "/team", "/rules", "/download", "/community"];
+export const routes = ["/", "/about", "/news", "/gallery", "/factions", "/team", "/rules", "/download", "/community", "/store"];
+export const coinPackages = [100, 500, 1000, 2500, 5000, 10000] as const;
 export type PageKey = keyof typeof copy.en.pages;

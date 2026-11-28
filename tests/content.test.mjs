@@ -25,7 +25,7 @@ test("all four languages cover the same public content and navigation", () => {
 });
 
 test("main navigation maps to the requested public pages", () => {
-  assert.deepEqual(routes, ["/", "/about", "/news", "/gallery", "/factions", "/team", "/rules", "/download", "/community"]);
+  assert.deepEqual(routes, ["/", "/about", "/news", "/gallery", "/factions", "/team", "/rules", "/download", "/community", "/store"]);
 });
 
 test("regional community cards use the official Discord invites and open safely in a new tab", async () => {
@@ -71,4 +71,15 @@ test("website has no authentication, administration, or database dependencies", 
   assert.doesNotMatch(files, /admin|supabase/i);
   await assert.rejects(access(new URL("../app/admin/page.tsx", import.meta.url)));
   await assert.rejects(access(new URL("../lib/supabase.ts", import.meta.url)));
+});
+
+test("store shows six OKAP Coins packages as coming soon with no purchase flow", async () => {
+  assert.ok(routes.includes("/store"));
+  for (const language of ["ht", "en", "fr", "ar"]) {
+    assert.ok(copy[language].pages.store);
+    assert.ok(copy[language].storeSoon && copy[language].storePrice);
+  }
+  const page = await readFile(new URL("../components/site.tsx", import.meta.url), "utf8");
+  assert.match(page, /coinPackages/);
+  assert.doesNotMatch(page, /checkout|stripe|paypal/i);
 });

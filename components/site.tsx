@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation";
 import { createContext, useContext, useEffect, useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import { ArrowDown, ArrowUpRight, Compass, Globe2, Menu, Play, Shield, Sparkles, X } from "lucide-react";
-import { copy, languages, routes, type Language, type PageKey } from "@/lib/content";
+import { coinPackages, copy, languages, routes, type Language, type PageKey } from "@/lib/content";
 import { FactionScene } from "@/components/faction-scenes";
 
 const LanguageContext = createContext<{ language: Language; setLanguage: (language: Language) => void }>({ language: "en", setLanguage: () => {} });
@@ -180,13 +180,41 @@ export function Home() {
   </main></Shell>;
 }
 
+function Coin({ size }: { size: number }) {
+  return <div className="coin-scene" style={{ "--coin-size": `${size}px` } as React.CSSProperties} aria-hidden="true">
+    <div className="coin">
+      {Array.from({ length: 9 }, (_, k) => <i key={k} className="coin-layer" style={{ transform: `translateZ(${(k - 4) * 1.6}px)` }}/>)}
+      <b className="coin-face coin-front"><span>OC</span></b>
+      <b className="coin-face coin-back"><span>OC</span></b>
+    </div>
+  </div>;
+}
+
+function formatCoins(amount: number, separator: string) {
+  return String(amount).replace(/\B(?=(\d{3})+(?!\d))/g, separator);
+}
+
+function CoinStore() {
+  const t = useCopy();
+  return <>
+    <div className="development-notice"><span className="badge">{t.storeSoon}</span><p>{t.storeNotice}</p></div>
+    <div className="coin-grid">{coinPackages.map((amount, i) => <Reveal key={amount} className="coin-card">
+      <div className="coin-card-top"><span>{t.storePackage} 0{i + 1}</span><span className="coin-soon">{t.storeSoon}</span></div>
+      <div className="coin-stage"><Coin size={96 + i * 9}/></div>
+      <h3><strong>{formatCoins(amount, t.storeSep)}</strong> {t.storeCoin}</h3>
+      <p className="coin-price">{t.storePrice}</p>
+      <button type="button" className="coin-button" disabled aria-disabled="true">{t.storeSoon}</button>
+    </Reveal>)}</div>
+  </>;
+}
+
 export function PublicPage({ page }: { page: PageKey }) {
   const t = useCopy();
   const [title, description] = t.pages[page];
   return <Shell><main id="main" className="public-page">
     <section className="page-hero"><div className="page-hero-art" aria-hidden="true"/><div className="wrap page-hero-content"><span className="section-label">{t.pageIntro}</span><h1>{title}</h1><p>{description}</p></div></section>
     <section className="section wrap page-content">
-      {page === "factions" ? <FactionCards/> : page === "community" ? <><div className="development-notice"><span className="badge">{t.underDevelopment}</span><p>{t.developmentText}</p></div><CommunityCards/></> : page === "download" ? <div className="platform-grid">{["iOS", "Android", "Windows", "macOS"].map((platform, i) => <div className="platform-card" key={platform}><div className="platform-top"><span>{t.platform} / 0{i + 1}</span><ArrowUpRight size={18}/></div><h2>{platform}</h2><div className="platform-status"><span>{t.availability}</span><strong>{t.coming}</strong></div><p>{t.unavailable}</p><Link className="news-community-link" href="/community">{t.joinCommunity} <ArrowUpRight size={15}/></Link></div>)}</div> : page === "news" || page === "gallery" ? <div className="page-placeholder"><span className="placeholder-index">{t.underDevelopment}</span><h2>{page === "news" ? t.newsTitle : t.galleryTitle}<span>.</span></h2><p>{page === "news" ? t.developmentText : `${description} ${t.trailerIntro}`}</p><Link className="news-community-link" href="/community">{t.joinCommunity} <ArrowUpRight size={15}/></Link></div> : <div className="page-placeholder"><span className="placeholder-index">OKAP CITY RP</span><h2>{t.coming}<span>.</span></h2><p>{description}</p></div>}
+      {page === "factions" ? <FactionCards/> : page === "store" ? <CoinStore/> : page === "community" ? <><div className="development-notice"><span className="badge">{t.underDevelopment}</span><p>{t.developmentText}</p></div><CommunityCards/></> : page === "download" ? <div className="platform-grid">{["iOS", "Android", "Windows", "macOS"].map((platform, i) => <div className="platform-card" key={platform}><div className="platform-top"><span>{t.platform} / 0{i + 1}</span><ArrowUpRight size={18}/></div><h2>{platform}</h2><div className="platform-status"><span>{t.availability}</span><strong>{t.coming}</strong></div><p>{t.unavailable}</p><Link className="news-community-link" href="/community">{t.joinCommunity} <ArrowUpRight size={15}/></Link></div>)}</div> : page === "news" || page === "gallery" ? <div className="page-placeholder"><span className="placeholder-index">{t.underDevelopment}</span><h2>{page === "news" ? t.newsTitle : t.galleryTitle}<span>.</span></h2><p>{page === "news" ? t.developmentText : `${description} ${t.trailerIntro}`}</p><Link className="news-community-link" href="/community">{t.joinCommunity} <ArrowUpRight size={15}/></Link></div> : <div className="page-placeholder"><span className="placeholder-index">OKAP CITY RP</span><h2>{t.coming}<span>.</span></h2><p>{description}</p></div>}
       <TextLink href="/">{t.back}</TextLink>
     </section>
   </main></Shell>;
