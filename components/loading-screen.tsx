@@ -37,11 +37,25 @@ export function LoadingScreen({ label }: { label: string }) {
   }, [phase]);
 
   if (phase === "done") return null;
+  const logo = "/images/okap-logo-transparent.webp";
+  const logoUrl = `url(${process.env.NEXT_PUBLIC_BASE_PATH || ""}${logo})`;
   return <div className={`loader ${phase === "leaving" ? "loader-leaving" : ""}`} role="status" aria-live="polite" aria-label={label}>
-    <div className="loader-glow" aria-hidden="true"><span className="loader-glow-gold"/><span className="loader-glow-red"/></div>
+    <div className="loader-smoke" aria-hidden="true"><span/><span/><span/></div>
     <div className="loader-particles" aria-hidden="true">{particles.map((p, i) => <i key={i} style={{ left: `${p.left}%`, width: p.size, height: p.size, animationDuration: `${p.duration}s`, animationDelay: `${p.delay}s` }}/>)}</div>
     <div className="loader-center">
-      <div className="loader-logo-wrap" aria-hidden="true"><span className="loader-halo"/><div className="loader-logo"><Image className="loader-logo-img" src="/images/okap-logo.jpg" alt="" width={1536} height={1024} priority quality={90} sizes="(max-width:650px) 90vw, 560px"/></div></div>
+      <div className="ld-stage" aria-hidden="true" style={{ "--logo-url": logoUrl } as React.CSSProperties}>
+        <span className="ld-halo"/>
+        <span className="ld-ring ld-ring-outer"/>
+        <span className="ld-ring ld-ring-dash"/>
+        <span className="ld-ring ld-ring-red"/>
+        <span className="ld-ring ld-ring-streak"/>
+        <span className="ld-ring ld-ring-streak ld-ring-streak-2"/>
+        <div className="ld-logo">
+          <Image className="ld-logo-img" src={logo} alt="" width={717} height={729} priority sizes="(max-width:767px) 200px, 280px"/>
+          <span className="ld-sweep"/>
+          <span className="ld-spark ld-spark-1"/><span className="ld-spark ld-spark-2"/><span className="ld-spark ld-spark-3"/>
+        </div>
+      </div>
       <div className="loader-bar" aria-hidden="true"><span/></div>
       <p className="loader-label">{label}</p>
     </div>
