@@ -24,4 +24,4 @@ The project is not deployed. Official game screenshots, trailer footage, and leg
 
 ## Concept images
 
-Promotional artwork is concept visuals, not official gameplay screenshots, and is labelled as such on the site. Place the supplied originals, unmodified, in `public/images/`: `hero-city.jpg` (homepage background), `police.jpg`, `army.jpg`, `medics.jpg`, and `fbi.jpg`. Next.js serves optimized responsive versions at high quality.
+Promotional artwork is concept visuals, not official gameplay screenshots, and is labelled as such on the site. Place the supplied originals, unmodified, in `public/images/`: `hero-city.jpg` (homepage background), `president.jpg` (Government), `police.jpg`, `army.jpg`, `medics.jpg`, and `fbi.jpg`. Next.js serves optimized responsive versions at high quality.
