@@ -5,6 +5,7 @@ import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
 import { Shell, TextLink } from "@/components/site";
 import { CinematicBanner } from "@/components/guides";
+import { HelicopterScene } from "@/components/helicopter-scene";
 import { Reveal, useCopy, useLanguage, useUi } from "@/components/context";
 import { coinPackages } from "@/lib/content";
 import { homeCoins } from "@/lib/ui";
@@ -60,7 +61,7 @@ export function StorePage({ home = false }: { home?: boolean }) {
   const bannerFile = storeArtFiles.banner;
   const hasBanner = availableStoreArt().includes(bannerFile);
   return <Shell><main id="main" className="public-page store-page">
-    <CinematicBanner title={u.store.bannerTitle} text={description} label={home ? hc.kicker : t.storeLabel} className={home ? "home-coins" : ""}
+    <CinematicBanner title={u.store.bannerTitle} text={description} label={home ? hc.kicker : t.storeLabel} className={home ? "home-coins" : ""} art={home && !hasBanner ? <HelicopterScene/> : undefined}
       intro={home ? <div className="home-welcome-block"><p className="home-welcome">{hc.welcome}</p><p className="home-welcome-text">{hc.text}</p></div> : undefined}
       image={hasBanner ? `/images/store/${bannerFile}` : "/images/hero-city.jpg"} position={hasBanner ? "50% 50%" : "70% 60%"}/>
     <section className="section wrap">
